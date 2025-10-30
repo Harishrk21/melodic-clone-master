@@ -12,7 +12,7 @@ const Footer = () => {
               <span className="text-xl font-bold text-foreground">SareGaPaDhaSa Music Academy</span>
             </div>
             <p className="text-muted-foreground text-sm">
-              Empowering musicians worldwide with professional online music education.
+              Empowering musicians with professional music education — primarily offline at our centers, and online live 1‑to‑1.
             </p>
           </div>
 

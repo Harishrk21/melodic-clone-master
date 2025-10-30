@@ -22,6 +22,7 @@ import Rockschool from "./pages/Rockschool";
 import Blog from "./pages/Blog";
 import Store from "./pages/Store";
 import ChendaMelam from "./pages/ChendaMelam";
+import AutoPromoModal from "@/components/AutoPromoModal";
 
 const queryClient = new QueryClient();
 
@@ -53,6 +54,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <AutoPromoModal />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

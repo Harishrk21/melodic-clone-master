@@ -4,7 +4,7 @@ import carnaticImg from "@/assets/icons/carnatic.svg";
 import hindustaniImg from "@/assets/icons/hindustani.svg";
 import westernImg from "@/assets/icons/western.svg";
 import fluteImg from "@/assets/icons/flute.svg";
-import violinImg from "@/assets/icons/violin.svg";
+import violinImg from "@/assets/icons/violin.png";
 import drumsImg from "@/assets/icons/drums.svg";
 import chendaImg from "@/assets/icons/chenda.svg";
 import trinityImg from "@/assets/icons/trinity.png";

@@ -50,6 +50,7 @@ const Navigation = () => {
   ];
 
   return (
+    <>
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <a href="/" className="flex items-center gap-2">
@@ -221,6 +222,14 @@ const Navigation = () => {
         </div>
       )}
     </nav>
+    <div className="bg-gradient-to-r from-primary/10 via-success/10 to-primary/10 border-b">
+      <div className="container mx-auto px-4 py-2 text-center text-sm">
+        <span className="font-semibold text-foreground">Primarily Offline Classes at Our Centers</span>
+        <span className="mx-2">•</span>
+        <span className="text-muted-foreground">Online live 1-to-1 classes also available</span>
+      </div>
+    </div>
+    </>
   );
 };
 

@@ -11,11 +11,11 @@ const Hero = () => {
           <div className="space-y-8 animate-slide-up">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight tracking-tight">
-                Live 1-to-1{" "}
-                <span className="text-primary">Online Music Classes</span>
+                Live 1-to-1 {" "}
+                <span className="text-primary">Offline & Online</span> Music Classes
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
-                Taught by professional tutors for all ages. Instructions in English & all major Indian languages.
+                Taught by professional tutors for all ages. Learn at our centers (offline) or from home (online). Instructions in English & all major Indian languages.
               </p>
             </div>
 

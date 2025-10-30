@@ -14,14 +14,18 @@ const InstrumentHero = ({ instrument, description, imageSrc }: InstrumentHeroPro
           <div className="space-y-6 animate-fade-in">
             <p className="text-primary text-lg font-medium">Live 1 to 1</p>
             <h1 className="text-5xl md:text-6xl font-bold">
-              Online <span className="text-primary">{instrument}</span> Classes
+              <span className="text-primary">Offline</span> & Online {instrument} Classes
             </h1>
             <p className="text-lg text-muted-foreground">
               {description}
             </p>
+            <div className="grid grid-cols-2 gap-2 max-w-md">
+              <span className="rounded-full bg-primary/10 px-3 py-1 text-sm text-primary font-medium text-center">Center-based classes</span>
+              <span className="rounded-full bg-success/10 px-3 py-1 text-sm text-success font-medium text-center">Live online available</span>
+            </div>
             <div className="flex flex-wrap gap-4">
-              <Button variant="hero" size="lg">
-                Book a FREE Demo
+              <Button asChild variant="hero" size="lg">
+                <a href="/book-demo">Book a FREE Demo</a>
               </Button>
               <Button variant="success" size="lg">
                 WhatsApp Us
