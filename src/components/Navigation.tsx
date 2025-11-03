@@ -1,4 +1,5 @@
 import { useState } from "react";
+import logo from "../../src/assets/logo.jpeg";
 import { Menu, X, Music, Guitar, Piano, Mic, Drum, Music2, Music3, BookOpen, ShoppingBag } from "lucide-react";
 import {
   DropdownMenu,
@@ -51,29 +52,30 @@ const Navigation = () => {
 
   return (
     <>
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <a href="/" className="flex items-center gap-2">
-          <Music className="h-8 w-8 text-primary" />
-          <span className="text-xl font-bold text-foreground">SareGaPaDhaSa Music Academy</span>
+    <nav className="sticky top-0 z-50 w-full border-b border-zinc-800 bg-black">
+      <div className="container mx-auto flex h-28 items-center justify-between px-4">
+        <a href="/" className="flex items-center gap-3">
+          <img src={logo} alt="SareGaPaDhaSa Music Academy Logo" className="h-36 w-36 object-contain" />
+          <span className="text-2xl font-bold text-white">SareGaPaDhaSa Music Academy</span>
         </a>
-
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Instruments</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="bg-transparent text-gray-300 hover:bg-zinc-900 hover:text-white data-[state=open]:bg-zinc-900 data-[state=open]:text-white">
+                  Instruments
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[420px] gap-3 p-4 md:w-[520px] md:grid-cols-2 bg-background">
+                  <ul className="grid w-[420px] gap-3 p-4 md:w-[520px] md:grid-cols-2 bg-zinc-950 border border-zinc-800">
                     {instruments.map((item) => (
                       <li key={item.name}>
                         <NavigationMenuLink asChild>
                           <a
                             href={item.href}
-                            className="flex items-center gap-3 select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                            className="flex items-center gap-3 select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-zinc-900 hover:text-white text-gray-300"
                           >
-                            {item.Icon && <item.Icon className="h-4 w-4 text-primary" />}
+                            {item.Icon && <item.Icon className="h-4 w-4 text-blue-400" />}
                             <div className="text-sm font-medium leading-none">{item.name}</div>
                           </a>
                         </NavigationMenuLink>
@@ -84,15 +86,17 @@ const Navigation = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Singing</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="bg-transparent text-gray-300 hover:bg-zinc-900 hover:text-white data-[state=open]:bg-zinc-900 data-[state=open]:text-white">
+                  Singing
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[240px] gap-3 p-4 bg-background">
+                  <ul className="grid w-[240px] gap-3 p-4 bg-zinc-950 border border-zinc-800">
                     {singing.map((item) => (
                       <li key={item.name}>
                         <NavigationMenuLink asChild>
                           <a
                             href={item.href}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-zinc-900 hover:text-white text-gray-300"
                           >
                             <div className="text-sm font-medium leading-none">{item.name}</div>
                           </a>
@@ -104,15 +108,17 @@ const Navigation = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Grade Exams</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="bg-transparent text-gray-300 hover:bg-zinc-900 hover:text-white data-[state=open]:bg-zinc-900 data-[state=open]:text-white">
+                  Grade Exams
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[300px] gap-3 p-4 bg-background">
+                  <ul className="grid w-[300px] gap-3 p-4 bg-zinc-950 border border-zinc-800">
                     {exams.map((item) => (
                       <li key={item.name}>
                         <NavigationMenuLink asChild>
                           <a
                             href={item.href}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-zinc-900 hover:text-white text-gray-300"
                           >
                             <div className="text-sm font-medium leading-none">{item.name}</div>
                           </a>
@@ -124,12 +130,12 @@ const Navigation = () => {
               </NavigationMenuItem>
 
               <DropdownMenu>
-                <DropdownMenuTrigger className="inline-flex h-10 items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground">
+                <DropdownMenuTrigger className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white">
                   Resources
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" sideOffset={8} className="w-56">
+                <DropdownMenuContent align="start" sideOffset={8} className="w-56 bg-zinc-950 border border-zinc-800">
                   {resources.map((item) => (
-                    <DropdownMenuItem key={item.name} asChild>
+                    <DropdownMenuItem key={item.name} asChild className="text-gray-300 hover:bg-zinc-900 hover:text-white focus:bg-zinc-900 focus:text-white">
                       <a href={item.href} className="w-full">
                         {item.name}
                       </a>
@@ -139,32 +145,27 @@ const Navigation = () => {
               </DropdownMenu>
 
               <NavigationMenuItem>
-                <a href="/blog" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                <a href="/blog" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 transition-colors hover:bg-zinc-900 hover:text-white">
                   <BookOpen className="h-4 w-4 mr-2" /> Blog
                 </a>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <a href="/store" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                <a href="/store" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 transition-colors hover:bg-zinc-900 hover:text-white">
                   <ShoppingBag className="h-4 w-4 mr-2" /> Store
                 </a>
               </NavigationMenuItem>
-
-              {/** Pricing removed as requested **/}
             </NavigationMenuList>
           </NavigationMenu>
 
-          <Button variant="destructive" size="lg">
-            Student - Login
-          </Button>
-          <Button asChild variant="hero" size="lg">
+          <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white" size="lg">
             <a href="/book-demo">Book a FREE Demo</a>
           </Button>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden"
+          className="md:hidden text-white"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -174,15 +175,15 @@ const Navigation = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t bg-background">
+        <div className="md:hidden border-t border-zinc-800 bg-black">
           <div className="container mx-auto px-4 py-4 space-y-4">
             <div className="space-y-2">
-              <p className="font-semibold text-sm text-muted-foreground">Instruments</p>
+              <p className="font-semibold text-sm text-gray-500">Instruments</p>
               {instruments.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block py-2 text-sm hover:text-primary transition-colors"
+                  className="block py-2 text-sm text-gray-300 hover:text-blue-400 transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
@@ -190,12 +191,12 @@ const Navigation = () => {
               ))}
             </div>
             <div className="space-y-2">
-              <p className="font-semibold text-sm text-muted-foreground">Grade Exams</p>
+              <p className="font-semibold text-sm text-gray-500">Grade Exams</p>
               {exams.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block py-2 text-sm hover:text-primary transition-colors"
+                  className="block py-2 text-sm text-gray-300 hover:text-blue-400 transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
@@ -203,31 +204,27 @@ const Navigation = () => {
               ))}
             </div>
             <div className="space-y-2">
-              <p className="font-semibold text-sm text-muted-foreground">Resources</p>
+              <p className="font-semibold text-sm text-gray-500">Resources</p>
               {resources.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block py-2 text-sm hover:text-primary transition-colors"
+                  className="block py-2 text-sm text-gray-300 hover:text-blue-400 transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
                 </a>
               ))}
             </div>
-            <Button asChild variant="hero" size="lg" className="w-full">
+            <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white w-full" size="lg">
               <a href="/book-demo">Book a FREE Demo</a>
             </Button>
           </div>
         </div>
       )}
     </nav>
-    <div className="bg-gradient-to-r from-primary/10 via-success/10 to-primary/10 border-b">
-      <div className="container mx-auto px-4 py-2 text-center text-sm">
-        <span className="font-semibold text-foreground">Primarily Offline Classes at Our Centers</span>
-        <span className="mx-2">•</span>
-        <span className="text-muted-foreground">Online live 1-to-1 classes also available</span>
-      </div>
+    <div className="bg-gradient-to-r from-blue-900/20 via-blue-800/20 to-blue-900/20 border-b border-zinc-800">
+      
     </div>
     </>
   );

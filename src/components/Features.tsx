@@ -1,4 +1,4 @@
-import { Video, Clock, Award, HeadphonesIcon, BookOpen, Users } from "lucide-react";
+import { Video, Clock, Award, Headphones, BookOpen, Users } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Features = () => {
@@ -19,7 +19,7 @@ const Features = () => {
       description: "Prepare for Trinity, ABRSM, and RSL grade exams with expert guidance",
     },
     {
-      icon: HeadphonesIcon,
+      icon: Headphones,
       title: "Professional Tutors",
       description: "Learn from 75+ certified music professionals with years of teaching experience",
     },
@@ -36,34 +36,51 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12 animate-slide-up">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Why Choose MusicMaster?
+    <section className="relative py-20 bg-black overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-black to-yellow-900/10"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#d4af3712_1px,transparent_1px),linear-gradient(to_bottom,#d4af3712_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+      
+      {/* Glowing Orbs */}
+      <div className="absolute top-20 left-10 w-96 h-96 bg-amber-600/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-yellow-600/15 rounded-full blur-3xl animate-pulse"></div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Why Choose{" "}
+            <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent">
+              MusicMaster
+            </span>
+            ?
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Experience the best online music education with our comprehensive features
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
               <Card
                 key={index}
-                className="group hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 hover:border-primary/50"
+                className="group relative overflow-hidden bg-gradient-to-br from-amber-950/60 to-yellow-950/40 border border-amber-500/30 backdrop-blur-sm hover:border-amber-400/60 hover:shadow-xl hover:shadow-amber-500/20 transition-all duration-300 hover:scale-105"
               >
                 <CardHeader>
-                  <div className="h-14 w-14 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <Icon className="h-7 w-7 text-primary" />
+                  <div className="h-16 w-16 rounded-xl bg-gradient-to-br from-amber-500 via-yellow-500 to-amber-600 shadow-lg shadow-amber-500/50 flex items-center justify-center mb-6 group-hover:shadow-amber-400/70 transition-all duration-300">
+                    <Icon className="h-8 w-8 text-black" />
                   </div>
-                  <CardTitle className="text-xl">{feature.title}</CardTitle>
+                  <CardTitle className="text-xl font-bold bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent">
+                    {feature.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{feature.description}</p>
+                  <p className="text-gray-400 leading-relaxed">{feature.description}</p>
                 </CardContent>
+
+                {/* Hover Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 to-yellow-500/0 group-hover:from-amber-500/5 group-hover:to-yellow-500/5 transition-all duration-300 pointer-events-none"></div>
               </Card>
             );
           })}

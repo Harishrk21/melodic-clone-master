@@ -1,65 +1,122 @@
-import { Music, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import logo from "../assets/logo.jpeg";
 
 const Footer = () => {
   return (
-    <footer className="bg-card border-t py-12">
-      <div className="container mx-auto px-4">
+    <footer className="relative bg-black border-t border-amber-500/30 py-12 overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-black to-yellow-900/10"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#d4af3712_1px,transparent_1px),linear-gradient(to_bottom,#d4af3712_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+      
+      {/* Glowing Orbs */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-600/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-yellow-600/15 rounded-full blur-3xl animate-pulse"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <Music className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold text-foreground">SareGaPaDhaSa Music Academy</span>
+            <div className="flex items-center gap-4">
+              <img src={logo} alt="SareGaPaDhaSa Logo" className="h-24 w-24 object-contain" />
+              <span className="text-lg font-bold bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent">
+                SareGaPaDhaSa Music Academy
+              </span>
             </div>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-gray-400 text-sm leading-relaxed">
               Empowering musicians with professional music education — primarily offline at our centers, and online live 1‑to‑1.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="/how-it-works" className="hover:text-primary transition-colors">How It Works</a></li>
-              <li><a href="/faqs" className="hover:text-primary transition-colors">FAQs</a></li>
-              <li><a href="/tutor" className="hover:text-primary transition-colors">Become a Tutor</a></li>
-              <li><a href="/contact" className="hover:text-primary transition-colors">Contact</a></li>
+            <h3 className="font-semibold text-white mb-4 text-lg">Quick Links</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href="/how-it-works" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
+                  How It Works
+                </a>
+              </li>
+              <li>
+                <a href="/faqs" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
+                  FAQs
+                </a>
+              </li>
+              <li>
+                <a href="/tutor" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
+                  Become a Tutor
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
 
           {/* Courses */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Popular Courses</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="/guitar" className="hover:text-primary transition-colors">Guitar Classes</a></li>
-              <li><a href="/piano" className="hover:text-primary transition-colors">Piano Lessons</a></li>
-              <li><a href="/vocals" className="hover:text-primary transition-colors">Vocal Training</a></li>
-              <li><a href="/drums" className="hover:text-primary transition-colors">Drum Lessons</a></li>
+            <h3 className="font-semibold text-white mb-4 text-lg">Popular Courses</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href="/guitar" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
+                  Guitar Classes
+                </a>
+              </li>
+              <li>
+                <a href="/piano" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
+                  Piano Lessons
+                </a>
+              </li>
+              <li>
+                <a href="/vocals" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
+                  Vocal Training
+                </a>
+              </li>
+              <li>
+                <a href="/drums" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
+                  Drum Lessons
+                </a>
+              </li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Contact Us</h3>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-primary" />
-                <span>+91 97898 97600</span>
+            <h3 className="font-semibold text-white mb-4 text-lg">Contact Us</h3>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-center gap-3 group">
+                <div className="p-1.5 bg-gradient-to-br from-amber-500/20 to-yellow-500/20 rounded border border-amber-500/40">
+                  <Phone className="h-4 w-4 text-amber-400" />
+                </div>
+                <span className="text-gray-400 group-hover:text-amber-300 transition-colors">
+                  +91 97898 97600
+                </span>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-primary" />
-                <span>info@saregapadhasa.com</span>
+              <li className="flex items-center gap-3 group">
+                <div className="p-1.5 bg-gradient-to-br from-amber-500/20 to-yellow-500/20 rounded border border-amber-500/40">
+                  <Mail className="h-4 w-4 text-amber-400" />
+                </div>
+                <span className="text-gray-400 group-hover:text-amber-300 transition-colors">
+                  info@saregapadhasa.com
+                </span>
               </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-primary" />
-                <span>120+ Cities Worldwide</span>
+              <li className="flex items-center gap-3 group">
+                <div className="p-1.5 bg-gradient-to-br from-amber-500/20 to-yellow-500/20 rounded border border-amber-500/40">
+                  <MapPin className="h-4 w-4 text-amber-400" />
+                </div>
+                <span className="text-gray-400 group-hover:text-amber-300 transition-colors">
+                  120+ Cities Worldwide
+                </span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} SareGaPaDhaSa Music Academy. All rights reserved.</p>
+        <div className="mt-12 pt-8 border-t border-amber-500/30 text-center">
+          <p className="text-sm text-amber-300/80">
+            &copy; {new Date().getFullYear()} SareGaPaDhaSa Music Academy. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
