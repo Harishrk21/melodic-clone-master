@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Youtube, Instagram, Facebook } from "lucide-react";
 import logo from "../assets/logo.jpeg";
 
 const Footer = () => {
@@ -25,6 +25,39 @@ const Footer = () => {
             <p className="text-gray-400 text-sm leading-relaxed">
               Empowering musicians with professional music education — primarily offline at our centers, and online live 1‑to‑1.
             </p>
+            
+            {/* Social Media Links */}
+            <div className="flex items-center gap-3">
+              <a 
+                href="https://www.youtube.com/@SaReGaPaDhaSa" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group relative p-2.5 bg-gradient-to-br from-amber-500/10 to-yellow-500/10 rounded-lg border border-amber-500/30 hover:border-amber-400 transition-all duration-300 hover:scale-110"
+              >
+                <Youtube className="h-5 w-5 text-amber-400 group-hover:text-amber-300 transition-colors" />
+                <div className="absolute inset-0 bg-amber-400/0 group-hover:bg-amber-400/10 rounded-lg transition-colors"></div>
+              </a>
+              
+              <a 
+                href="https://www.instagram.com/SaReGaPaDhaSa" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group relative p-2.5 bg-gradient-to-br from-amber-500/10 to-yellow-500/10 rounded-lg border border-amber-500/30 hover:border-amber-400 transition-all duration-300 hover:scale-110"
+              >
+                <Instagram className="h-5 w-5 text-amber-400 group-hover:text-amber-300 transition-colors" />
+                <div className="absolute inset-0 bg-amber-400/0 group-hover:bg-amber-400/10 rounded-lg transition-colors"></div>
+              </a>
+              
+              <a 
+                href="https://www.facebook.com/SaReGaPaDhaSa" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group relative p-2.5 bg-gradient-to-br from-amber-500/10 to-yellow-500/10 rounded-lg border border-amber-500/30 hover:border-amber-400 transition-all duration-300 hover:scale-110"
+              >
+                <Facebook className="h-5 w-5 text-amber-400 group-hover:text-amber-300 transition-colors" />
+                <div className="absolute inset-0 bg-amber-400/0 group-hover:bg-amber-400/10 rounded-lg transition-colors"></div>
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -59,6 +92,11 @@ const Footer = () => {
             <h3 className="font-semibold text-white mb-4 text-lg">Popular Courses</h3>
             <ul className="space-y-2 text-sm">
               <li>
+                <a href="/keyboard" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
+                  Keyboard
+                </a>
+              </li>
+              <li>
                 <a href="/guitar" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
                   Guitar Classes
                 </a>
@@ -78,6 +116,12 @@ const Footer = () => {
                   Drum Lessons
                 </a>
               </li>
+              <li>
+                <a href="/chenda-melam" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
+                  Chenda Melam
+                </a>
+              </li>
+               
             </ul>
           </div>
 
@@ -90,7 +134,9 @@ const Footer = () => {
                   <Phone className="h-4 w-4 text-amber-400" />
                 </div>
                 <span className="text-gray-400 group-hover:text-amber-300 transition-colors">
-                  +91 97898 97600
+                  +91 90030 66873
+                  <br/>
+                  +91 72998 17996
                 </span>
               </li>
               <li className="flex items-center gap-3 group">
@@ -98,7 +144,7 @@ const Footer = () => {
                   <Mail className="h-4 w-4 text-amber-400" />
                 </div>
                 <span className="text-gray-400 group-hover:text-amber-300 transition-colors">
-                  info@saregapadhasa.com
+                  admission@saregapadhasa.com
                 </span>
               </li>
               <li className="flex items-center gap-3 group">
@@ -106,7 +152,7 @@ const Footer = () => {
                   <MapPin className="h-4 w-4 text-amber-400" />
                 </div>
                 <span className="text-gray-400 group-hover:text-amber-300 transition-colors">
-                  120+ Cities Worldwide
+                  No.20, Ground floor, 1st Main Rd, Srinivasa Nagar, Kolathur, Chennai, Tamil Nadu 600099
                 </span>
               </li>
             </ul>

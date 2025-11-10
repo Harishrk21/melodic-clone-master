@@ -1,25 +1,12 @@
 import { useState } from "react";
 import logo from "../../src/assets/logo.jpeg";
-import { Menu, X, Music, Guitar, Piano, Mic, Drum, Music2, Music3, BookOpen, ShoppingBag } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
+import { Menu, X, Music, Guitar, Piano, Mic, Drum, Music2, Music3, BookOpen, ShoppingBag, KeyboardMusic, Info, ChevronDown, ChevronUp } from "lucide-react";
 
 const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileInstrumentsOpen, setMobileInstrumentsOpen] = useState(false);
+  const [mobileExamsOpen, setMobileExamsOpen] = useState(false);
+  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
 
   const instruments = [
     { name: "Guitar", href: "/guitar", Icon: Guitar },
@@ -28,13 +15,8 @@ const Navigation = () => {
     { name: "Drums", href: "/drums", Icon: Drum },
     { name: "Violin", href: "/violin", Icon: Music2 },
     { name: "Flute", href: "/flute", Icon: Music3 },
+    { name: "Keyboard", href: "/Keyboard", Icon: KeyboardMusic },
     { name: "Chenda Melam", href: "/chenda-melam", Icon: Drum },
-  ];
-
-  const singing = [
-    { name: "Carnatic", href: "/vocals#carnatic" },
-    { name: "Hindustani", href: "/vocals#hindustani" },
-    { name: "Western", href: "/vocals#western" },
   ];
 
   const exams = [
@@ -52,180 +34,256 @@ const Navigation = () => {
 
   return (
     <>
-    <nav className="sticky top-0 z-50 w-full border-b border-zinc-800 bg-black">
-      <div className="container mx-auto flex h-28 items-center justify-between px-4">
-        <a href="/" className="flex items-center gap-3">
-          <img src={logo} alt="SareGaPaDhaSa Music Academy Logo" className="h-36 w-36 object-contain" />
-          <span className="text-2xl font-bold text-white">SareGaPaDhaSa Music Academy</span>
-        </a>
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6">
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent text-gray-300 hover:bg-zinc-900 hover:text-white data-[state=open]:bg-zinc-900 data-[state=open]:text-white">
+      <nav className="sticky top-0 z-50 w-full border-b border-zinc-800 bg-black">
+        <div className="w-full px-4">
+          {/* Header with Logo and Menu Button */}
+          <div className="flex h-20 sm:h-24 lg:h-28 items-center justify-between max-w-[1920px] mx-auto">
+            {/* Logo Section */}
+            <a href="/" className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+              <img
+                src={logo}
+                alt="SareGaPaDhaSa Music Academy Logo"
+                className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 lg:h-32 lg:w-32 xl:h-36 xl:w-36 object-contain"
+              />
+              <div className="flex flex-col leading-tight">
+                <span className="text-sm sm:text-base md:text-xl lg:text-2xl font-bold text-white whitespace-nowrap">
+                  SareGaPaDhaSa Music Academy
+                </span>
+                <span className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-cyan-400"
+                  style={{
+                    textShadow: "0 0 8px rgba(34,211,238,0.8), 0 0 16px rgba(34,211,238,0.5)",
+                  }}>
+                  Powered by CBS Groups
+                </span>
+              </div>
+            </a>
+
+            {/* Desktop Navigation - Hidden on mobile/tablet */}
+            <div className="hidden xl:flex items-center gap-2 2xl:gap-4 flex-wrap justify-end">
+              {/* Instruments Dropdown */}
+              <div className="relative group">
+                <button className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
                   Instruments
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[420px] gap-3 p-4 md:w-[520px] md:grid-cols-2 bg-zinc-950 border border-zinc-800">
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+                <div className="absolute left-0 top-full mt-2 hidden group-hover:block w-[420px] xl:w-[520px] bg-zinc-950 border border-zinc-800 rounded-md shadow-xl z-50">
+                  <div className="grid grid-cols-2 gap-3 p-4">
                     {instruments.map((item) => (
-                      <li key={item.name}>
-                        <NavigationMenuLink asChild>
-                          <a
-                            href={item.href}
-                            className="flex items-center gap-3 select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-zinc-900 hover:text-white text-gray-300"
-                          >
-                            {item.Icon && <item.Icon className="h-4 w-4 text-blue-400" />}
-                            <div className="text-sm font-medium leading-none">{item.name}</div>
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent text-gray-300 hover:bg-zinc-900 hover:text-white data-[state=open]:bg-zinc-900 data-[state=open]:text-white">
-                  Singing
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[240px] gap-3 p-4 bg-zinc-950 border border-zinc-800">
-                    {singing.map((item) => (
-                      <li key={item.name}>
-                        <NavigationMenuLink asChild>
-                          <a
-                            href={item.href}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-zinc-900 hover:text-white text-gray-300"
-                          >
-                            <div className="text-sm font-medium leading-none">{item.name}</div>
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent text-gray-300 hover:bg-zinc-900 hover:text-white data-[state=open]:bg-zinc-900 data-[state=open]:text-white">
-                  Grade Exams
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[300px] gap-3 p-4 bg-zinc-950 border border-zinc-800">
-                    {exams.map((item) => (
-                      <li key={item.name}>
-                        <NavigationMenuLink asChild>
-                          <a
-                            href={item.href}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-zinc-900 hover:text-white text-gray-300"
-                          >
-                            <div className="text-sm font-medium leading-none">{item.name}</div>
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <DropdownMenu>
-                <DropdownMenuTrigger className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white">
-                  Resources
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" sideOffset={8} className="w-56 bg-zinc-950 border border-zinc-800">
-                  {resources.map((item) => (
-                    <DropdownMenuItem key={item.name} asChild className="text-gray-300 hover:bg-zinc-900 hover:text-white focus:bg-zinc-900 focus:text-white">
-                      <a href={item.href} className="w-full">
-                        {item.name}
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="flex items-center gap-3 rounded-md p-3 text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors"
+                      >
+                        <item.Icon className="h-4 w-4 text-blue-400 flex-shrink-0" />
+                        <span className="text-sm font-medium">{item.name}</span>
                       </a>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
+                    ))}
+                  </div>
+                </div>
+              </div>
 
-              <NavigationMenuItem>
-                <a href="/blog" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 transition-colors hover:bg-zinc-900 hover:text-white">
-                  <BookOpen className="h-4 w-4 mr-2" /> Blog
-                </a>
-              </NavigationMenuItem>
+              {/* Grade Exams Dropdown */}
+              <div className="relative group">
+                <button className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
+                  Grade Exams
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+                <div className="absolute left-0 top-full mt-2 hidden group-hover:block w-[300px] bg-zinc-950 border border-zinc-800 rounded-md shadow-xl z-50">
+                  <div className="p-4 space-y-2">
+                    {exams.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="block rounded-md p-3 text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors"
+                      >
+                        <span className="text-sm font-medium">{item.name}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
 
-              <NavigationMenuItem>
-                <a href="/store" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 transition-colors hover:bg-zinc-900 hover:text-white">
-                  <ShoppingBag className="h-4 w-4 mr-2" /> Store
-                </a>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+              {/* Resources Dropdown */}
+              <div className="relative group">
+                <button className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
+                  Resources
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+                <div className="absolute left-0 top-full mt-2 hidden group-hover:block w-[240px] bg-zinc-950 border border-zinc-800 rounded-md shadow-xl z-50">
+                  <div className="p-4 space-y-2">
+                    {resources.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="block rounded-md p-3 text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors"
+                      >
+                        <span className="text-sm font-medium">{item.name}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
 
-          <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white" size="lg">
-            <a href="/book-demo">Book a FREE Demo</a>
-          </Button>
-        </div>
+              <a href="/blog" className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
+                <BookOpen className="h-4 w-4 mr-2" /> Blog
+              </a>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-      </div>
+              <a href="/store" className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
+                <ShoppingBag className="h-4 w-4 mr-2" /> Store
+              </a>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t border-zinc-800 bg-black">
-          <div className="container mx-auto px-4 py-4 space-y-4">
-            <div className="space-y-2">
-              <p className="font-semibold text-sm text-gray-500">Instruments</p>
-              {instruments.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block py-2 text-sm text-gray-300 hover:text-blue-400 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
+              <a href="/liveband" className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
+                <Music className="h-4 w-4 mr-2" /> Live Band
+              </a>
+
+              <a href="/about" className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
+                <Info className="h-4 w-4 mr-2" /> About Us
+              </a>
+
+              <a href="/book-demo" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-md text-sm font-medium transition-colors whitespace-nowrap">
+                Book a FREE Demo
+              </a>
             </div>
-            <div className="space-y-2">
-              <p className="font-semibold text-sm text-gray-500">Grade Exams</p>
-              {exams.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block py-2 text-sm text-gray-300 hover:text-blue-400 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-            <div className="space-y-2">
-              <p className="font-semibold text-sm text-gray-500">Resources</p>
-              {resources.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block py-2 text-sm text-gray-300 hover:text-blue-400 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-            <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white w-full" size="lg">
-              <a href="/book-demo">Book a FREE Demo</a>
-            </Button>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="xl:hidden text-white p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
         </div>
-      )}
-    </nav>
-    <div className="bg-gradient-to-r from-blue-900/20 via-blue-800/20 to-blue-900/20 border-b border-zinc-800">
-      
-    </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="xl:hidden border-t border-zinc-800 bg-black max-h-[calc(100vh-5rem)] overflow-y-auto">
+            <div className="container mx-auto px-4 py-4 space-y-1">
+              {/* Instruments Section */}
+              <div className="border-b border-zinc-800 pb-2">
+                <button
+                  onClick={() => setMobileInstrumentsOpen(!mobileInstrumentsOpen)}
+                  className="w-full flex items-center justify-between py-3 text-sm font-semibold text-gray-300 hover:text-white transition-colors"
+                >
+                  Instruments
+                  {mobileInstrumentsOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                </button>
+                {mobileInstrumentsOpen && (
+                  <div className="pl-4 space-y-1 pb-2">
+                    {instruments.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="flex items-center gap-3 py-2.5 text-sm text-gray-400 hover:text-blue-400 transition-colors"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <item.Icon className="h-4 w-4 flex-shrink-0" />
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Grade Exams Section */}
+              <div className="border-b border-zinc-800 pb-2">
+                <button
+                  onClick={() => setMobileExamsOpen(!mobileExamsOpen)}
+                  className="w-full flex items-center justify-between py-3 text-sm font-semibold text-gray-300 hover:text-white transition-colors"
+                >
+                  Grade Exams
+                  {mobileExamsOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                </button>
+                {mobileExamsOpen && (
+                  <div className="pl-4 space-y-1 pb-2">
+                    {exams.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="block py-2.5 text-sm text-gray-400 hover:text-blue-400 transition-colors"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Resources Section */}
+              <div className="border-b border-zinc-800 pb-2">
+                <button
+                  onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
+                  className="w-full flex items-center justify-between py-3 text-sm font-semibold text-gray-300 hover:text-white transition-colors"
+                >
+                  Resources
+                  {mobileResourcesOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                </button>
+                {mobileResourcesOpen && (
+                  <div className="pl-4 space-y-1 pb-2">
+                    {resources.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="block py-2.5 text-sm text-gray-400 hover:text-blue-400 transition-colors"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Direct Links */}
+              <div className="space-y-1 pt-2">
+                <a
+                  href="/blog"
+                  className="flex items-center gap-3 py-3 text-sm text-gray-300 hover:text-blue-400 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <BookOpen className="h-4 w-4" /> Blog
+                </a>
+                <a
+                  href="/store"
+                  className="flex items-center gap-3 py-3 text-sm text-gray-300 hover:text-blue-400 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <ShoppingBag className="h-4 w-4" /> Store
+                </a>
+                <a
+                  href="/liveband"
+                  className="flex items-center gap-3 py-3 text-sm text-gray-300 hover:text-blue-400 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Music className="h-4 w-4" /> Live Band
+                </a>
+                <a
+                  href="/about"
+                  className="flex items-center gap-3 py-3 text-sm text-gray-300 hover:text-blue-400 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Info className="h-4 w-4" /> About Us
+                </a>
+              </div>
+
+              {/* CTA Button */}
+              <div className="pt-4 pb-2">
+                <a
+                  href="/book-demo"
+                  className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center px-6 py-3 rounded-md text-sm font-medium transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Book a FREE Demo
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+      </nav>
+      <div className="bg-gradient-to-r from-blue-900/20 via-blue-800/20 to-blue-900/20 border-b border-zinc-800 h-1">
+      </div>
     </>
   );
 };

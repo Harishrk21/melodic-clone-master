@@ -26,7 +26,7 @@ const InstrumentAdvantages = ({ instrument }: { instrument: string }) => {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Best Online {instrument} Lessons
           </h2>
-          <p className="text-xl text-muted-foreground">The MUSIC MASTER Advantage</p>
+          <p className="text-xl text-muted-foreground">The SaReGaPaDhaSa Advantage</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">

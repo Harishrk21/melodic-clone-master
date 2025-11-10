@@ -40,25 +40,24 @@ const Features = () => {
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-black to-yellow-900/10"></div>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#d4af3712_1px,transparent_1px),linear-gradient(to_bottom,#d4af3712_1px,transparent_1px)] bg-[size:32px_32px]"></div>
-      
+
       {/* Glowing Orbs */}
       <div className="absolute top-20 left-10 w-96 h-96 bg-amber-600/20 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-yellow-600/15 rounded-full blur-3xl animate-pulse"></div>
 
       <div className="container mx-auto px-4 relative z-10">
+        {/* Section Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Why Choose{" "}
-            <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent">
-              MusicMaster
-            </span>
-            ?
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent mb-4">
+            Why Choose SaReGaPaDhaSa?
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Experience the best online music education with our comprehensive features
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            Experience the best online music education with our comprehensive features and{" "}
+            <span className="text-amber-300 font-semibold">certified professionals</span>
           </p>
         </div>
 
+        {/* Feature Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => {
             const Icon = feature.icon;
@@ -71,12 +70,12 @@ const Features = () => {
                   <div className="h-16 w-16 rounded-xl bg-gradient-to-br from-amber-500 via-yellow-500 to-amber-600 shadow-lg shadow-amber-500/50 flex items-center justify-center mb-6 group-hover:shadow-amber-400/70 transition-all duration-300">
                     <Icon className="h-8 w-8 text-black" />
                   </div>
-                  <CardTitle className="text-xl font-bold bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent">
+                  <CardTitle className="text-xl font-bold bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-200 bg-clip-text text-transparent">
                     {feature.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+                  <p className="text-gray-300 leading-relaxed">{feature.description}</p>
                 </CardContent>
 
                 {/* Hover Glow Effect */}
@@ -91,3 +90,5 @@ const Features = () => {
 };
 
 export default Features;
+
+

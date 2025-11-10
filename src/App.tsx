@@ -23,7 +23,9 @@ import Blog from "./pages/Blog";
 import Store from "./pages/Store";
 import ChendaMelam from "./pages/ChendaMelam";
 import AutoPromoModal from "@/components/AutoPromoModal";
-
+import Keyboard from "./pages/keyboard";
+import LivaBand from "./pages/LivaBand"
+import AboutUs from "./pages/AboutUs";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -40,6 +42,7 @@ const App = () => (
           <Route path="/drums" element={<Drums />} />
           <Route path="/violin" element={<Violin />} />
           <Route path="/flute" element={<Flute />} />
+          <Route path="/keyboard" element={<Keyboard />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/contact" element={<Contact />} />
@@ -51,6 +54,8 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/store" element={<Store />} />
           <Route path="/chenda-melam" element={<ChendaMelam />} />
+           <Route path="/liveband" element={<LivaBand />} />
+           <Route path="/about" element={<AboutUs />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

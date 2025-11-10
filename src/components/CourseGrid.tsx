@@ -31,14 +31,14 @@ const CourseGrid = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent">
               Explore Classes & Grade Exams
             </span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Choose from a wide range of instruments and vocal styles taught by{' '}
-            <span className="text-amber-300/80 font-medium">certified professionals</span>
+            <span className="text-amber-300 font-medium">certified professionals</span>
           </p>
         </div>
 

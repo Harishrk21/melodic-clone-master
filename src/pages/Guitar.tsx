@@ -86,7 +86,7 @@ const Guitar = () => {
   return (
     <>
       <Helmet>
-        <title>Online Guitar Classes - Live 1-to-1 Guitar Lessons | MusicMaster</title>
+        <title>Online Guitar Classes - Live 1-to-1 Guitar Lessons | SaReGaPaDhaSa</title>
         <meta
           name="description"
           content="Looking for best online Guitar classes near you? Learn to play Guitar for all age groups from the comfort of your home with the best qualified Guitar teachers."
@@ -111,13 +111,21 @@ const Guitar = () => {
                   Looking for best online Guitar classes near you? Learn to play Guitar for all age groups from the comfort of your home with the best qualified Guitar teachers.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <button className="bg-yellow-400 text-purple-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-lg">
-                    Start Learning Today
-                  </button>
-                  <button className="border-2 border-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-purple-900 transition-all flex items-center gap-2">
-                    <PlayCircle size={24} /> Watch Demo
-                  </button>
-                </div>
+  <a href="/book-demo">
+    <button className="bg-yellow-400 text-purple-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-lg">
+      Start Learning Today
+    </button>
+  </a>
+  <a 
+    href="https://www.youtube.com/@SaReGaPaDhaSa" 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    <button className="border-2 border-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-purple-900 transition-all flex items-center gap-2">
+      <PlayCircle size={24} /> Watch Demo
+    </button>
+  </a>
+</div>
               </div>
               <div className="hidden md:block">
                 <img src={heroImage} alt="Guitar Learning" className="rounded-2xl shadow-2xl" />
@@ -295,11 +303,13 @@ const Guitar = () => {
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Start Your Guitar Journey?</h2>
             <p className="text-xl mb-8 text-purple-100 max-w-2xl mx-auto">
-              Join thousands of students who have transformed their musical dreams into reality with MusicMaster.
+              Join thousands of students who have transformed their musical dreams into reality with SaReGaPaDhaSa.
             </p>
-            <button className="bg-yellow-400 text-purple-900 px-12 py-5 rounded-full font-bold text-xl hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-2xl">
-              Book Your Free Trial Class
-            </button>
+            <a href="/book-demo">
+  <button className="bg-yellow-400 text-purple-900 px-12 py-5 rounded-full font-bold text-xl hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-2xl">
+    Book Your Free Trial Class
+  </button>
+</a>
             <p className="mt-6 text-purple-200">No credit card required • Cancel anytime</p>
           </div>
         </section>

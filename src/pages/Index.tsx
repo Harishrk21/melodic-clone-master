@@ -4,7 +4,6 @@ import CourseGrid from "@/components/CourseGrid";
 import Features from "@/components/Features";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
-import FloatingDemoBar from "@/components/FloatingDemoBar";
 
 const Index = () => {
   return (
@@ -17,7 +16,7 @@ const Index = () => {
         <Testimonials />
       </main>
       <Footer />
-      <FloatingDemoBar />
+     
     </div>
   );
 };

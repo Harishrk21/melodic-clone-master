@@ -51,7 +51,7 @@ const Hero = () => {
                   <Users className="h-8 w-8 text-black" />
                 </div>
                 <div className="relative">
-                  <p className="text-4xl font-bold bg-gradient-to-r from-amber-200 to-yellow-300 bg-clip-text text-transparent">75+</p>
+                  <p className="text-4xl font-bold bg-gradient-to-r from-amber-200 to-yellow-300 bg-clip-text text-transparent">15+</p>
                   <p className="text-sm text-amber-300/80 font-medium">Professional Tutors</p>
                 </div>
               </div>
@@ -62,8 +62,9 @@ const Hero = () => {
                   <MapPin className="h-8 w-8 text-black" />
                 </div>
                 <div className="relative">
-                  <p className="text-4xl font-bold bg-gradient-to-r from-amber-200 to-yellow-300 bg-clip-text text-transparent">120+</p>
-                  <p className="text-sm text-amber-300/80 font-medium">Cities Worldwide</p>
+                  <p className="text-4xl font-bold bg-gradient-to-r from-amber-200 to-yellow-300 bg-clip-text text-transparent">200+</p>
+<p className="text-sm text-amber-300/80 font-medium">Happy Students</p>
+
                 </div>
               </div>
             </div>
@@ -81,11 +82,18 @@ const Hero = () => {
                 </a>
               </Button>
               <Button 
-                size="lg"
-                className="relative bg-black text-amber-400 font-bold px-8 py-6 text-lg rounded-xl border-2 border-amber-500/50 hover:border-amber-400 hover:bg-amber-950/30 shadow-lg shadow-amber-500/20 hover:shadow-amber-400/40 transition-all duration-300 backdrop-blur-sm"
-              >
-                WhatsApp Us
-              </Button>
+    asChild
+    size="lg"
+    className="relative bg-black text-amber-400 font-bold px-8 py-6 text-lg rounded-xl border-2 border-amber-500/50 hover:border-amber-400 hover:bg-amber-950/30 shadow-lg shadow-amber-500/20 hover:shadow-amber-400/40 transition-all duration-300 backdrop-blur-sm"
+  >
+    <a 
+      href="https://wa.me/919003066873?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20your%20music%20classes." 
+      target="_blank" 
+      rel="noopener noreferrer"
+    >
+      WhatsApp Us
+    </a>
+  </Button>
             </div>
           </div>
 
