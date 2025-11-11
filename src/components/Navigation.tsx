@@ -15,7 +15,7 @@ const Navigation = () => {
     { name: "Drums", href: "/drums", Icon: Drum },
     { name: "Violin", href: "/violin", Icon: Music2 },
     { name: "Flute", href: "/flute", Icon: Music3 },
-    { name: "Keyboard", href: "/Keyboard", Icon: KeyboardMusic },
+    { name: "Keyboard", href: "/keyboard", Icon: KeyboardMusic },
     { name: "Chenda Melam", href: "/chenda-melam", Icon: Drum },
   ];
 
@@ -39,17 +39,17 @@ const Navigation = () => {
           {/* Header with Logo and Menu Button */}
           <div className="flex h-20 sm:h-24 lg:h-28 items-center justify-between max-w-[1920px] mx-auto">
             {/* Logo Section */}
-            <a href="/" className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            <a href="/" className="flex items-center gap-2 sm:gap-3 flex-shrink-0 min-w-0">
               <img
                 src={logo}
                 alt="SareGaPaDhaSa Music Academy Logo"
-                className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 lg:h-32 lg:w-32 xl:h-36 xl:w-36 object-contain"
+                className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 lg:h-28 lg:w-28 xl:h-28 xl:w-28 object-contain flex-shrink-0"
               />
-              <div className="flex flex-col leading-tight">
-                <span className="text-sm sm:text-base md:text-xl lg:text-2xl font-bold text-white whitespace-nowrap">
+              <div className="flex flex-col leading-tight min-w-0">
+                <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl font-bold text-white whitespace-nowrap truncate">
                   SareGaPaDhaSa Music Academy
                 </span>
-                <span className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-cyan-400"
+                <span className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm font-semibold text-cyan-400 truncate"
                   style={{
                     textShadow: "0 0 8px rgba(34,211,238,0.8), 0 0 16px rgba(34,211,238,0.5)",
                   }}>
@@ -59,11 +59,11 @@ const Navigation = () => {
             </a>
 
             {/* Desktop Navigation - Hidden on mobile/tablet */}
-            <div className="hidden xl:flex items-center gap-2 2xl:gap-4 flex-wrap justify-end">
+            <div className="hidden xl:flex items-center gap-1.5 2xl:gap-2 flex-nowrap justify-end flex-shrink-0">
               {/* Instruments Dropdown */}
               <div className="relative group">
                 <div className="pb-2">
-                  <button className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
+                  <button className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-3 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors whitespace-nowrap">
                     Instruments
                     <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
@@ -89,7 +89,7 @@ const Navigation = () => {
               {/* Grade Exams Dropdown */}
               <div className="relative group">
                 <div className="pb-2">
-                  <button className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
+                  <button className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-3 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors whitespace-nowrap">
                     Grade Exams
                     <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
@@ -114,7 +114,7 @@ const Navigation = () => {
               {/* Resources Dropdown */}
               <div className="relative group">
                 <div className="pb-2">
-                  <button className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
+                  <button className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-3 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors whitespace-nowrap">
                     Resources
                     <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
@@ -136,23 +136,23 @@ const Navigation = () => {
                 </div>
               </div>
 
-              <a href="/blog" className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
-                <BookOpen className="h-4 w-4 mr-2" /> Blog
+              <a href="/blog" className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-3 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors whitespace-nowrap">
+                <BookOpen className="h-4 w-4 mr-1.5" /> Blog
               </a>
 
-              <a href="/store" className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
-                <ShoppingBag className="h-4 w-4 mr-2" /> Store
+              <a href="/store" className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-3 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors whitespace-nowrap">
+                <ShoppingBag className="h-4 w-4 mr-1.5" /> Store
               </a>
 
-              <a href="/liveband" className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
-                <Music className="h-4 w-4 mr-2" /> Live Band
+              <a href="/liveband" className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-3 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors whitespace-nowrap">
+                <Music className="h-4 w-4 mr-1.5" /> Live Band
               </a>
 
-              <a href="/about" className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
-                <Info className="h-4 w-4 mr-2" /> About Us
+              <a href="/about" className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-3 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors whitespace-nowrap">
+                <Info className="h-4 w-4 mr-1.5" /> About Us
               </a>
 
-              <a href="/book-demo" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-md text-sm font-medium transition-colors whitespace-nowrap">
+              <a href="/book-demo" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-md text-sm font-medium transition-colors whitespace-nowrap flex-shrink-0">
                 Book a FREE Demo
               </a>
             </div>
