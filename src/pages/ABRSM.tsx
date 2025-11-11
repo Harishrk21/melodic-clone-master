@@ -1,8 +1,14 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Award, Music, BookOpen, Users, Target, Star, Clock, CheckCircle, Trophy, GraduationCap } from "lucide-react";
+import { SEOHelmet } from "@/components/SEOHelmet";
+import { StructuredData, generateBreadcrumbSchema } from "@/lib/structuredData";
 
 const ABRSM = () => {
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.saregapadhasa.com" },
+    { name: "ABRSM", url: "https://www.saregapadhasa.com/abrsm" }
+  ]);
   const grades = [
     { level: "Grades 1-3", desc: "Foundation levels for beginners", color: "from-blue-500 to-cyan-500" },
     { level: "Grades 4-5", desc: "Intermediate development", color: "from-purple-500 to-pink-500" },
@@ -28,6 +34,8 @@ const ABRSM = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <SEOHelmet page="abrsm" />
+      <StructuredData data={breadcrumbs} />
       <Navigation />
       
       <main className="container mx-auto px-4 py-12 space-y-20">
@@ -45,12 +53,14 @@ const ABRSM = () => {
             Unlock your musical potential with world-recognized ABRSM certifications. Our expert tutors guide you through every step of your musical journey, from your first exam to professional diplomas.
           </p>
           <div className="flex flex-wrap justify-center gap-4 pt-4">
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all transform hover:scale-105">
-              Start Your Journey
-            </button>
-            <button className="bg-white text-slate-700 px-8 py-4 rounded-xl font-semibold border-2 border-slate-200 hover:border-blue-600 hover:shadow-lg transition-all">
-              View Syllabus
-            </button>
+         <a
+  href="/contact"
+  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all transform hover:scale-105 inline-block"
+>
+  Start Your Journey With SaReGaPaDhaSa Academy
+</a>
+
+            
           </div>
         </section>
 
@@ -197,15 +207,23 @@ const ABRSM = () => {
             Join hundreds of successful students who have achieved their ABRSM certifications with us
           </p>
           <div className="flex flex-wrap justify-center gap-4 pt-4">
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all transform hover:scale-105 flex items-center gap-2">
-              <Award className="w-6 h-6" />
-              Enroll Now
-            </button>
-            <button className="bg-white text-slate-700 px-10 py-5 rounded-xl font-semibold text-lg border-2 border-slate-300 hover:border-blue-600 hover:shadow-lg transition-all flex items-center gap-2">
-              <Music className="w-6 h-6" />
-              Schedule Trial Class
-            </button>
-          </div>
+  <a
+    href="/contact"
+    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all transform hover:scale-105 flex items-center gap-2"
+  >
+    <Award className="w-6 h-6" />
+    Enroll Now
+  </a>
+
+  <a
+    href="/book-demo"
+    className="bg-white text-slate-700 px-10 py-5 rounded-xl font-semibold text-lg border-2 border-slate-300 hover:border-blue-600 hover:shadow-lg transition-all flex items-center gap-2"
+  >
+    <Music className="w-6 h-6" />
+    Schedule Trial Class
+  </a>
+</div>
+
         </section>
       </main>
       

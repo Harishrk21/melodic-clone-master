@@ -1,8 +1,14 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Music, Trophy, BookOpen, Users, CheckCircle, Star, Award, Target } from "lucide-react";
+import { SEOHelmet } from "@/components/SEOHelmet";
+import { StructuredData, generateBreadcrumbSchema } from "@/lib/structuredData";
 
 const Rockschool = () => {
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.saregapadhasa.com" },
+    { name: "Rockschool", url: "https://www.saregapadhasa.com/rockschool" }
+  ]);
   const features = [
     {
       icon: <Music className="w-8 h-8" />,
@@ -43,6 +49,8 @@ const Rockschool = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <SEOHelmet page="rockschool" />
+      <StructuredData data={breadcrumbs} />
       <Navigation />
       
       <main className="container mx-auto px-4 py-12 space-y-16">
@@ -193,14 +201,22 @@ const Rockschool = () => {
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             Start your Rockschool grade examination preparation today and gain qualifications that matter in the modern music industry.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <button className="bg-white text-orange-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              Book a Trial Session
-            </button>
-            <button className="bg-black/20 backdrop-blur-sm text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-black/30 transition-colors duration-300 border-2 border-white/30">
-              Learn More
-            </button>
-          </div>
+         <div className="flex flex-wrap justify-center gap-4">
+  <a
+    href="/book-demo"
+    className="bg-white text-orange-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+  >
+    Book a Trial Session
+  </a>
+
+  <a
+    href="/contact"
+    className="bg-black/20 backdrop-blur-sm text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-black/30 transition-colors duration-300 border-2 border-white/30"
+  >
+    Learn More
+  </a>
+</div>
+
         </div>
       </main>
       

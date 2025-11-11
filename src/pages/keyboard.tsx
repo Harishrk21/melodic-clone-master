@@ -2,8 +2,16 @@ import React, { useState } from 'react';
 import { Users, Award, Clock, BookOpen, Play, Heart, Music, Star, ChevronRight, Sparkles, Target, Zap, Trophy, Piano, Volume2, Headphones,PlayCircle } from 'lucide-react';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { SEOHelmet } from "@/components/SEOHelmet";
+import { StructuredData, generateCourseSchema, generateBreadcrumbSchema } from "@/lib/structuredData";
 const KeyboardClass = () => {
   const [activeTab, setActiveTab] = useState('basics');
+
+  const courseSchema = generateCourseSchema("Keyboard", "https://www.saregapadhasa.com/keyboard");
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.saregapadhasa.com" },
+    { name: "Keyboard Classes", url: "https://www.saregapadhasa.com/keyboard" }
+  ]);
 
   const features = [
     {
@@ -84,6 +92,9 @@ const KeyboardClass = () => {
 
   return (
     <>
+    <SEOHelmet page="keyboard" />
+    <StructuredData data={courseSchema} />
+    <StructuredData data={breadcrumbs} />
     <Navigation/>
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
       {/* Hero Section */}

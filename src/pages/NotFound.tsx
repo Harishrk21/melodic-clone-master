@@ -1,5 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { SEOHelmet } from "@/components/SEOHelmet";
+import { StructuredData, generateBreadcrumbSchema } from "@/lib/structuredData";
 
 const NotFound = () => {
   const location = useLocation();
@@ -10,6 +12,11 @@ const NotFound = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
+      <SEOHelmet page="notFound" />
+      <StructuredData data={generateBreadcrumbSchema([
+        { name: "Home", url: "https://www.saregapadhasa.com" },
+        { name: "404", url: `https://www.saregapadhasa.com${location.pathname}` }
+      ])} />
       <div className="text-center">
         <h1 className="mb-4 text-4xl font-bold">404</h1>
         <p className="mb-4 text-xl text-gray-600">Oops! Page not found</p>

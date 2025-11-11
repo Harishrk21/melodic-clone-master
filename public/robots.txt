@@ -1,14 +1,26 @@
+# Robots.txt for Saregapadhasa Music Academy
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Disallow admin or sensitive areas if any
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+
+# Sitemap location
+Sitemap: https://www.saregapadhasa.com/sitemap.xml
+
+# Crawl delay (optional, use if server load is a concern)
+# Crawl-delay: 1
+
+# Specific rules for major search engines
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: *
+User-agent: Slurp
 Allow: /

@@ -1,12 +1,19 @@
-import { Helmet } from "react-helmet";
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Music, Users, Trophy, Clock, Star, CheckCircle, PlayCircle, Award, Headphones, BookOpen, Target, Zap } from "lucide-react";
 import heroImage from "../assets/keyboard.png";
+import { SEOHelmet } from "@/components/SEOHelmet";
+import { StructuredData, generateCourseSchema, generateBreadcrumbSchema } from "@/lib/structuredData";
 
 const Guitar = () => {
   const [activeTab, setActiveTab] = useState("acoustic");
+
+  const courseSchema = generateCourseSchema("Piano", "https://www.saregapadhasa.com/piano");
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.saregapadhasa.com" },
+    { name: "Piano Classes", url: "https://www.saregapadhasa.com/piano" }
+  ]);
 
   const guitarTypes = [
     {
@@ -85,15 +92,9 @@ const Guitar = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Online Guitar Classes - Live 1-to-1 Guitar Lessons | SaReGaPaDhaSa</title>
-        <meta
-          name="description"
-          content="Looking for best online Guitar classes near you? Learn to play Guitar for all age groups from the comfort of your home with the best qualified Guitar teachers."
-        />
-        <meta name="keywords" content="guitar classes, online guitar lessons, learn guitar, guitar teacher, guitar courses" />
-        <link rel="canonical" href="https://yourdomain.com/guitar" />
-      </Helmet>
+      <SEOHelmet page="piano" />
+      <StructuredData data={courseSchema} />
+      <StructuredData data={breadcrumbs} />
 
       <Navigation />
       

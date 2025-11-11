@@ -62,64 +62,76 @@ const Navigation = () => {
             <div className="hidden xl:flex items-center gap-2 2xl:gap-4 flex-wrap justify-end">
               {/* Instruments Dropdown */}
               <div className="relative group">
-                <button className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
-                  Instruments
-                  <ChevronDown className="ml-1 h-4 w-4" />
-                </button>
-                <div className="absolute left-0 top-full mt-2 hidden group-hover:block w-[420px] xl:w-[520px] bg-zinc-950 border border-zinc-800 rounded-md shadow-xl z-50">
-                  <div className="grid grid-cols-2 gap-3 p-4">
-                    {instruments.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="flex items-center gap-3 rounded-md p-3 text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors"
-                      >
-                        <item.Icon className="h-4 w-4 text-blue-400 flex-shrink-0" />
-                        <span className="text-sm font-medium">{item.name}</span>
-                      </a>
-                    ))}
+                <div className="pb-2">
+                  <button className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
+                    Instruments
+                    <ChevronDown className="ml-1 h-4 w-4" />
+                  </button>
+                </div>
+                <div className="absolute left-0 top-full hidden group-hover:block w-[420px] xl:w-[520px] z-50 pt-2">
+                  <div className="bg-zinc-950 border border-zinc-800 rounded-md shadow-xl">
+                    <div className="grid grid-cols-2 gap-3 p-4">
+                      {instruments.map((item) => (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          className="flex items-center gap-3 rounded-md p-3 text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors"
+                        >
+                          <item.Icon className="h-4 w-4 text-blue-400 flex-shrink-0" />
+                          <span className="text-sm font-medium">{item.name}</span>
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Grade Exams Dropdown */}
               <div className="relative group">
-                <button className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
-                  Grade Exams
-                  <ChevronDown className="ml-1 h-4 w-4" />
-                </button>
-                <div className="absolute left-0 top-full mt-2 hidden group-hover:block w-[300px] bg-zinc-950 border border-zinc-800 rounded-md shadow-xl z-50">
-                  <div className="p-4 space-y-2">
-                    {exams.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="block rounded-md p-3 text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors"
-                      >
-                        <span className="text-sm font-medium">{item.name}</span>
-                      </a>
-                    ))}
+                <div className="pb-2">
+                  <button className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
+                    Grade Exams
+                    <ChevronDown className="ml-1 h-4 w-4" />
+                  </button>
+                </div>
+                <div className="absolute left-0 top-full hidden group-hover:block w-[300px] z-50 pt-2">
+                  <div className="bg-zinc-950 border border-zinc-800 rounded-md shadow-xl">
+                    <div className="p-4 space-y-2">
+                      {exams.map((item) => (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          className="block rounded-md p-3 text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors"
+                        >
+                          <span className="text-sm font-medium">{item.name}</span>
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Resources Dropdown */}
               <div className="relative group">
-                <button className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
-                  Resources
-                  <ChevronDown className="ml-1 h-4 w-4" />
-                </button>
-                <div className="absolute left-0 top-full mt-2 hidden group-hover:block w-[240px] bg-zinc-950 border border-zinc-800 rounded-md shadow-xl z-50">
-                  <div className="p-4 space-y-2">
-                    {resources.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="block rounded-md p-3 text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors"
-                      >
-                        <span className="text-sm font-medium">{item.name}</span>
-                      </a>
-                    ))}
+                <div className="pb-2">
+                  <button className="inline-flex h-10 items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors">
+                    Resources
+                    <ChevronDown className="ml-1 h-4 w-4" />
+                  </button>
+                </div>
+                <div className="absolute left-0 top-full hidden group-hover:block w-[240px] z-50 pt-2">
+                  <div className="bg-zinc-950 border border-zinc-800 rounded-md shadow-xl">
+                    <div className="p-4 space-y-2">
+                      {resources.map((item) => (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          className="block rounded-md p-3 text-gray-300 hover:bg-zinc-900 hover:text-white transition-colors"
+                        >
+                          <span className="text-sm font-medium">{item.name}</span>
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

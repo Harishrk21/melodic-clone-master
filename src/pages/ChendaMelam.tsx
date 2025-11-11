@@ -3,9 +3,16 @@ import { Users, Award, Clock, BookOpen, Play, Heart, Drum, Star, ChevronRight, S
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import chenda1 from "../assets/chenda1.jpg";
+import { SEOHelmet } from "@/components/SEOHelmet";
+import { StructuredData, generateBreadcrumbSchema } from "@/lib/structuredData";
 
 const ChendaMelam = () => {
   const [activeTab, setActiveTab] = useState('basics');
+
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.saregapadhasa.com" },
+    { name: "Chenda Melam", url: "https://www.saregapadhasa.com/chenda-melam" }
+  ]);
 
   const features = [
     {
@@ -80,6 +87,8 @@ const ChendaMelam = () => {
 
   return (
     <>
+    <SEOHelmet page="chendaMelam" />
+    <StructuredData data={breadcrumbs} />
     <Navigation/>
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-amber-50">
       {/* Hero Section */}

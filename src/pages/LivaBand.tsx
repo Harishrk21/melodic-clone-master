@@ -1,40 +1,58 @@
 import React, { useState } from 'react';
-import { Music, Users, Award, Clock, Phone, Mail, Instagram, Facebook, Star, Heart, Sparkles, Guitar, Mic, Drum, Calendar, MapPin, CheckCircle, PlayCircle, Trophy, Globe, Youtube, ChevronRight, ChevronLeft, X } from 'lucide-react';
+import { Music, Users, Award, Clock, Phone, Mail, Instagram, Facebook, Star, Heart, Sparkles, Guitar, Mic, Drum, Calendar, MapPin, CheckCircle, PlayCircle, Trophy, Globe, Youtube, ChevronRight, ChevronLeft, X, Loader2, Check } from 'lucide-react';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import logo from "../assets/logo.jpeg";
+import { SEOHelmet } from "@/components/SEOHelmet";
+import { StructuredData, generateBreadcrumbSchema } from "@/lib/structuredData";
 const LiveBandPage = () => {
   const [activeVideo, setActiveVideo] = useState(null);
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    eventType: '',
+    eventDate: '',
+    location: '',
+    message: ''
+  });
+
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.saregapadhasa.com" },
+    { name: "Live Band", url: "https://www.saregapadhasa.com/liveband" }
+  ]);
 
   const performanceVideos = [
     {
-      id: "dQw4w9WgXcQ",
-      title: "Carnatic Fusion Wedding Performance",
-      description: "A beautiful blend of classical and contemporary music",
-      views: "50K",
-      category: "Wedding"
+      id: "BkATyQ3krWg",
+      title: "Live Performance 1",
+      description: "SaReGaPaDhaSa Live Band performance highlight",
+      views: "—",
+      category: "Live"
     },
     {
-      id: "dQw4w9WgXcQ",
-      title: "Corporate Event - Multi-language Medley",
-      description: "Tamil, Hindi, and English hits in one electrifying set",
-      views: "35K",
-      category: "Corporate"
+      id: "Afq6PnJMtnc",
+      title: "Live Performance 2",
+      description: "SaReGaPaDhaSa Live Band performance highlight",
+      views: "—",
+      category: "Live"
     },
     {
-      id: "dQw4w9WgXcQ",
-      title: "Traditional Instrumental Showcase",
-      description: "Pure instrumental magic with violin, flute, and percussion",
-      views: "80K",
-      category: "Cultural"
+      id: "4GmSPiCq994",
+      title: "Live Performance 3",
+      description: "SaReGaPaDhaSa Live Band performance highlight",
+      views: "—",
+      category: "Live"
     },
     {
-      id: "dQw4w9WgXcQ",
-      title: "Reception Night - High Energy Performance",
-      description: "Dance numbers and romantic melodies",
-      views: "45K",
-      category: "Reception"
+      id: "KAJ9xZ9EGbQ",
+      title: "Live Performance 4",
+      description: "SaReGaPaDhaSa Live Band performance highlight",
+      views: "—",
+      category: "Live"
     }
   ];
 
@@ -142,9 +160,69 @@ const LiveBandPage = () => {
     setCurrentGalleryIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
   };
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const formPayload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        eventType: formData.eventType,
+        eventDate: formData.eventDate,
+        location: formData.location,
+        message: formData.message || 'Live Band Booking Inquiry',
+        _subject: `Live Band Booking Inquiry - ${formData.eventType || 'Event'}`,
+        _replyto: formData.email || undefined,
+        inquiryType: 'Live Band Booking'
+      };
+
+      const response = await fetch('https://formspree.io/f/xzzybgbz', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formPayload),
+      });
+
+      if (response.ok) {
+        setFormSubmitted(true);
+        setIsSubmitting(false);
+        
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setFormSubmitted(false);
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            eventType: '',
+            eventDate: '',
+            location: '',
+            message: ''
+          });
+        }, 5000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to submit your booking inquiry. Please try again or contact us directly at +91 93616 23134.');
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
         <>
+      <SEOHelmet page="liveBand" />
+      <StructuredData data={breadcrumbs} />
       <Navigation/>
 
       {/* Hero Section */}
@@ -175,15 +253,25 @@ const LiveBandPage = () => {
               </p>
               
               <div className="flex flex-wrap gap-4 mb-8">
-                <a href="#contact" className="bg-white text-purple-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-purple-50 transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
-                  <Calendar className="w-5 h-5" />
-                  Book Your Event
-                </a>
-                <a href="#performances" className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all flex items-center gap-2">
-                  <PlayCircle className="w-5 h-5" />
-                  Watch Performances
-                </a>
-              </div>
+  <a
+    href="/contact"
+    className="bg-white text-purple-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-purple-50 transition-all transform hover:scale-105 shadow-lg flex items-center gap-2"
+  >
+    <Calendar className="w-5 h-5" />
+    Book Your Event
+  </a>
+
+  <a
+    href="https://www.youtube.com/@SaReGaPaDhaSa"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all flex items-center gap-2"
+  >
+    <PlayCircle className="w-5 h-5" />
+    Watch Performances
+  </a>
+</div>
+
 
               <div className="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg inline-block font-bold shadow-xl">
                 <p className="text-sm mb-1">🎉 SPECIAL OFFER</p>
@@ -648,86 +736,141 @@ const LiveBandPage = () => {
             {/* Contact Form */}
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 border-2 border-purple-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a message</h3>
-              <form className="space-y-4">
-                <div>
-                  <label className="block text-gray-700 font-medium mb-2">Your Name *</label>
-                  <input 
-                    type="text" 
-                    className="w-full px-4 py-3 rounded-lg border-2 border-purple-200 focus:border-purple-500 focus:outline-none transition-colors"
-                    placeholder="Enter your name"
-                    required
-                  />
+              
+              {formSubmitted ? (
+                <div className="text-center py-12">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Check className="w-8 h-8 text-green-600" />
+                  </div>
+                  <h4 className="text-2xl font-bold text-gray-900 mb-2">Booking Inquiry Submitted!</h4>
+                  <p className="text-gray-600 mb-4">
+                    Thank you for your interest! We'll contact you within 24 hours with availability and pricing.
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    The form will reset shortly...
+                  </p>
                 </div>
+              ) : (
+                <form onSubmit={handleFormSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-gray-700 font-medium mb-2">Your Name *</label>
+                    <input 
+                      type="text" 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-lg border-2 border-purple-200 focus:border-purple-500 focus:outline-none transition-colors disabled:bg-gray-100"
+                      placeholder="Enter your name"
+                      required
+                      disabled={isSubmitting}
+                    />
+                  </div>
 
-                <div>
-                  <label className="block text-gray-700 font-medium mb-2">Phone Number *</label>
-                  <input 
-                    type="tel" 
-                    className="w-full px-4 py-3 rounded-lg border-2 border-purple-200 focus:border-purple-500 focus:outline-none transition-colors"
-                    placeholder="+91 XXXXX XXXXX"
-                    required
-                  />
-                </div>
+                  <div>
+                    <label className="block text-gray-700 font-medium mb-2">Phone Number *</label>
+                    <input 
+                      type="tel" 
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-lg border-2 border-purple-200 focus:border-purple-500 focus:outline-none transition-colors disabled:bg-gray-100"
+                      placeholder="+91 XXXXX XXXXX"
+                      required
+                      disabled={isSubmitting}
+                    />
+                  </div>
 
-                <div>
-                  <label className="block text-gray-700 font-medium mb-2">Email</label>
-                  <input 
-                    type="email" 
-                    className="w-full px-4 py-3 rounded-lg border-2 border-purple-200 focus:border-purple-500 focus:outline-none transition-colors"
-                    placeholder="your@email.com"
-                  />
-                </div>
+                  <div>
+                    <label className="block text-gray-700 font-medium mb-2">Email</label>
+                    <input 
+                      type="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-lg border-2 border-purple-200 focus:border-purple-500 focus:outline-none transition-colors disabled:bg-gray-100"
+                      placeholder="your@email.com"
+                      disabled={isSubmitting}
+                    />
+                  </div>
 
-                <div>
-                  <label className="block text-gray-700 font-medium mb-2">Event Type *</label>
-                  <select className="w-full px-4 py-3 rounded-lg border-2 border-purple-200 focus:border-purple-500 focus:outline-none transition-colors" required>
-                    <option value="">Select event type</option>
-                    <option value="wedding">Wedding</option>
-                    <option value="reception">Reception</option>
-                    <option value="corporate">Corporate Event</option>
-                    <option value="cultural">Cultural Program</option>
-                    <option value="private">Private Party</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
+                  <div>
+                    <label className="block text-gray-700 font-medium mb-2">Event Type *</label>
+                    <select 
+                      name="eventType"
+                      value={formData.eventType}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-lg border-2 border-purple-200 focus:border-purple-500 focus:outline-none transition-colors disabled:bg-gray-100" 
+                      required
+                      disabled={isSubmitting}
+                    >
+                      <option value="">Select event type</option>
+                      <option value="wedding">Wedding</option>
+                      <option value="reception">Reception</option>
+                      <option value="corporate">Corporate Event</option>
+                      <option value="cultural">Cultural Program</option>
+                      <option value="private">Private Party</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
 
-                <div>
-                  <label className="block text-gray-700 font-medium mb-2">Event Date</label>
-                  <input 
-                    type="date" 
-                    className="w-full px-4 py-3 rounded-lg border-2 border-purple-200 focus:border-purple-500 focus:outline-none transition-colors"
-                  />
-                </div>
+                  <div>
+                    <label className="block text-gray-700 font-medium mb-2">Event Date</label>
+                    <input 
+                      type="date" 
+                      name="eventDate"
+                      value={formData.eventDate}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-lg border-2 border-purple-200 focus:border-purple-500 focus:outline-none transition-colors disabled:bg-gray-100"
+                      disabled={isSubmitting}
+                    />
+                  </div>
 
-                <div>
-                  <label className="block text-gray-700 font-medium mb-2">Location</label>
-                  <input 
-                    type="text" 
-                    className="w-full px-4 py-3 rounded-lg border-2 border-purple-200 focus:border-purple-500 focus:outline-none transition-colors"
-                    placeholder="Event venue location"
-                  />
-                </div>
+                  <div>
+                    <label className="block text-gray-700 font-medium mb-2">Location</label>
+                    <input 
+                      type="text" 
+                      name="location"
+                      value={formData.location}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-lg border-2 border-purple-200 focus:border-purple-500 focus:outline-none transition-colors disabled:bg-gray-100"
+                      placeholder="Event venue location"
+                      disabled={isSubmitting}
+                    />
+                  </div>
 
-                <div>
-                  <label className="block text-gray-700 font-medium mb-2">Message</label>
-                  <textarea 
-                    className="w-full px-4 py-3 rounded-lg border-2 border-purple-200 focus:border-purple-500 focus:outline-none transition-colors"
-                    rows="4"
-                    placeholder="Tell us about your event requirements..."
-                  ></textarea>
-                </div>
+                  <div>
+                    <label className="block text-gray-700 font-medium mb-2">Message</label>
+                    <textarea 
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-lg border-2 border-purple-200 focus:border-purple-500 focus:outline-none transition-colors disabled:bg-gray-100"
+                      rows={4}
+                      placeholder="Tell us about your event requirements..."
+                      disabled={isSubmitting}
+                    ></textarea>
+                  </div>
 
-                <button 
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all transform hover:scale-105"
-                >
-                  Send Booking Inquiry
-                </button>
+                  <button 
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        Submitting...
+                      </>
+                    ) : (
+                      'Send Booking Inquiry'
+                    )}
+                  </button>
 
-                <p className="text-sm text-gray-600 text-center">
-                  We'll respond within 24 hours with availability and pricing
-                </p>
-              </form>
+                  <p className="text-sm text-gray-600 text-center">
+                    We'll respond within 24 hours with availability and pricing
+                  </p>
+                </form>
+              )}
             </div>
           </div>
         </div>

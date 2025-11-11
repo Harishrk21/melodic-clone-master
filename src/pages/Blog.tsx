@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Search, Calendar, Clock, User, TrendingUp, BookOpen, Music, Award, Heart, MessageCircle, Share2, ChevronRight, Filter, Star, Sparkles, Play, Headphones, Guitar, Piano as PianoIcon, Mic } from 'lucide-react';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { SEOHelmet } from "@/components/SEOHelmet";
+import { StructuredData, generateBreadcrumbSchema } from "@/lib/structuredData";
 const BlogPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
@@ -432,6 +434,11 @@ const BlogPage = () => {
   // Blog List View
   return (
     <>
+    <SEOHelmet page="blog" />
+    <StructuredData data={generateBreadcrumbSchema([
+      { name: "Home", url: "https://www.saregapadhasa.com" },
+      { name: "Blog", url: "https://www.saregapadhasa.com/blog" }
+    ])} />
     <Navigation/>
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50">
       {/* Hero Section */}

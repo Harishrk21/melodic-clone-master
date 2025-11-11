@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, HelpCircle, Music, Guitar, Piano, Mic, Clock, Users, Award, Globe, ShoppingBag, MessageCircle, Phone, Calendar, CheckCircle, Star, Video } from 'lucide-react';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { SEOHelmet } from "@/components/SEOHelmet";
+import { StructuredData, generateBreadcrumbSchema, generateFAQSchema } from "@/lib/structuredData";
 
 const FAQs = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -106,6 +108,12 @@ const FAQs = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-blue-50">
+      <SEOHelmet page="faqs" />
+      <StructuredData data={generateBreadcrumbSchema([
+        { name: "Home", url: "https://www.saregapadhasa.com" },
+        { name: "FAQs", url: "https://www.saregapadhasa.com/faqs" }
+      ])} />
+      <StructuredData data={generateFAQSchema(faqs.map(f => ({ question: f.q, answer: f.a })))} />
       <Navigation />
       
       {/* Hero Section */}

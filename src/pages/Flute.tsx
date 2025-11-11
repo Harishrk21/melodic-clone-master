@@ -2,8 +2,16 @@ import React, { useState } from 'react';
 import { Users, Award, Clock, BookOpen, Play, Heart, Music, Star, ChevronRight, Sparkles, Target, Zap, Trophy, Wind,PlayCircle } from 'lucide-react';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { SEOHelmet } from "@/components/SEOHelmet";
+import { StructuredData, generateCourseSchema, generateBreadcrumbSchema } from "@/lib/structuredData";
 const FlutePage = () => {
   const [activeTab, setActiveTab] = useState('basics');
+
+  const courseSchema = generateCourseSchema("Flute", "https://www.saregapadhasa.com/flute");
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.saregapadhasa.com" },
+    { name: "Flute Classes", url: "https://www.saregapadhasa.com/flute" }
+  ]);
 
   const features = [
     {
@@ -82,6 +90,9 @@ const FlutePage = () => {
 
   return (
     <>
+    <SEOHelmet page="flute" />
+    <StructuredData data={courseSchema} />
+    <StructuredData data={breadcrumbs} />
     <Navigation/>
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       {/* Hero Section */}

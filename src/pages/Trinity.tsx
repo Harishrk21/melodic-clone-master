@@ -1,8 +1,14 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Music, Award, Users, BookOpen, Target, Star, CheckCircle, GraduationCap } from "lucide-react";
+import { SEOHelmet } from "@/components/SEOHelmet";
+import { StructuredData, generateBreadcrumbSchema } from "@/lib/structuredData";
 
 const Trinity = () => {
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.saregapadhasa.com" },
+    { name: "Trinity", url: "https://www.saregapadhasa.com/trinity" }
+  ]);
   const instruments = [
     { name: "Guitar", icon: "🎸", grades: "Initial - Grade 8" },
     { name: "Piano/Keyboard", icon: "🎹", grades: "Initial - Grade 8" },
@@ -65,6 +71,8 @@ const Trinity = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <SEOHelmet page="trinity" />
+      <StructuredData data={breadcrumbs} />
       <Navigation />
       
       {/* Hero Section */}
@@ -87,12 +95,11 @@ const Trinity = () => {
               Comprehensive coaching for Trinity College London music exams. Master repertoire, technical work, and aural skills with our expert instructors across multiple instruments.
             </p>
             <div className="flex flex-wrap gap-4 justify-center pt-6">
-              <button className="px-8 py-3 bg-white text-purple-900 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105">
-                Start Your Journey
-              </button>
-              <button className="px-8 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-all">
-                View Syllabus
-              </button>
+              <a href="/book-demo">
+  <button className="bg-yellow-400 text-purple-900 px-12 py-5 rounded-full font-bold text-xl hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-2xl">
+    Start Your Journey with SaReGaPaDhaSa
+  </button>
+</a>
             </div>
           </div>
         </div>
@@ -218,20 +225,29 @@ const Trinity = () => {
 
       {/* CTA Section */}
       <section className="container mx-auto px-4 py-16">
-        <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl p-12 text-white text-center shadow-2xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start Your Musical Journey?</h2>
-          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Join our Trinity College London exam preparation program and achieve internationally recognized qualifications
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-purple-600 font-bold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Book a Trial Class
-            </button>
-            <button className="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition-all">
-              Contact Us
-            </button>
-          </div>
-        </div>
+       <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl p-12 text-white text-center shadow-2xl">
+  <h2 className="text-3xl md:text-4xl font-bold mb-4">
+    Ready to Start Your Musical Journey?
+  </h2>
+  <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+    Join our Trinity College London exam preparation program and achieve internationally recognized qualifications
+  </p>
+  <div className="flex flex-wrap gap-4 justify-center">
+    <a
+      href="/book-demo"
+      className="px-8 py-4 bg-white text-purple-600 font-bold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+    >
+      Book a Trial Class
+    </a>
+    <a
+      href="/contact"
+      className="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition-all"
+    >
+      Contact Us
+    </a>
+  </div>
+</div>
+
       </section>
 
       <Footer />

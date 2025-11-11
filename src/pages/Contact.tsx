@@ -6,6 +6,8 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Phone, Mail, MapPin, Clock, Send, Music, Users, Award, CheckCircle2, MessageCircle } from 'lucide-react';
+import { SEOHelmet } from "@/components/SEOHelmet";
+import { StructuredData, generateBreadcrumbSchema } from "@/lib/structuredData";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -47,7 +49,7 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (!validateForm()) {
@@ -57,23 +59,45 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
     
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-        interest: ''
+    try {
+      const response = await fetch('https://formspree.io/f/xzzybgbz', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+          interest: formData.interest,
+          _subject: `New Contact Inquiry - ${formData.name}${formData.subject ? `: ${formData.subject}` : ''}`,
+          _replyto: formData.email
+        })
       });
-      setErrors({});
-      
-      // Clear success message after 5 seconds
-      setTimeout(() => setSubmitStatus(null), 5000);
-    }, 1500);
+
+      if (response.ok) {
+        setIsSubmitting(false);
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: '',
+          interest: ''
+        });
+        setErrors({});
+        setTimeout(() => setSubmitStatus(null), 5000);
+      } else {
+        setIsSubmitting(false);
+        setSubmitStatus('error');
+      }
+    } catch (err) {
+      setIsSubmitting(false);
+      setSubmitStatus('error');
+    }
   };
 
   const handleChange = (e) => {
@@ -93,6 +117,11 @@ const Contact = () => {
 
   return (
     <>
+    <SEOHelmet page="contact" />
+    <StructuredData data={generateBreadcrumbSchema([
+      { name: "Home", url: "https://www.saregapadhasa.com" },
+      { name: "Contact", url: "https://www.saregapadhasa.com/contact" }
+    ])} />
     <Navigation/>
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-indigo-50">
       {/* Hero Section */}
@@ -256,15 +285,15 @@ const Contact = () => {
             <div className="bg-white rounded-2xl shadow-xl p-6 border border-purple-100">
               <h3 className="text-xl font-bold text-gray-800 mb-6">Contact Information</h3>
               
-              <div className="space-y-6">
+              <div className="space-y-4">
                 <div className="flex items-start space-x-4 group hover:bg-purple-50 p-3 rounded-lg transition-all cursor-pointer">
                   <div className="bg-purple-100 p-3 rounded-full group-hover:bg-purple-200 transition-all">
                     <Phone className="h-5 w-5 text-purple-600" />
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Phone</p>
-                    <p className="text-gray-600">+91 98765 43210</p>
-                    <p className="text-gray-600">+91 87654 32109</p>
+                    <p className="text-gray-600 text-sm">+91 98765 43210</p>
+                    <p className="text-gray-600 text-sm">+91 87654 32109</p>
                   </div>
                 </div>
 
@@ -274,8 +303,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Email</p>
-                    <p className="text-gray-600">info@saregapadhasa.com</p>
-                    <p className="text-gray-600">admissions@saregapadhasa.com</p>
+                    <p className="text-gray-600 text-sm">info@saregapadhasa.com</p>
+                    <p className="text-gray-600 text-sm">admissions@saregapadhasa.com</p>
                   </div>
                 </div>
 
@@ -285,8 +314,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Address</p>
-                    <p className="text-gray-600">123 Music Street, Avadi</p>
-                    <p className="text-gray-600">Chennai, Tamil Nadu 600054</p>
+                    <p className="text-gray-600 text-sm">123 Music Street, Avadi</p>
+                    <p className="text-gray-600 text-sm">Chennai, Tamil Nadu 600054</p>
                   </div>
                 </div>
 
@@ -296,8 +325,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Working Hours</p>
-                    <p className="text-gray-600">Mon - Sat: 9:00 AM - 8:00 PM</p>
-                    <p className="text-gray-600">Sunday: 10:00 AM - 5:00 PM</p>
+                    <p className="text-gray-600 text-sm">Mon - Sat: 9:00 AM - 8:00 PM</p>
+                    <p className="text-gray-600 text-sm">Sunday: 10:00 AM - 5:00 PM</p>
                   </div>
                 </div>
               </div>
@@ -305,39 +334,61 @@ const Contact = () => {
 
             {/* Why Choose Us */}
             <div className="bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl shadow-xl p-6 text-white">
-              <h3 className="text-xl font-bold mb-6">Why Choose Us?</h3>
+              <h3 className="text-xl font-bold mb-4">Why Choose Us?</h3>
               
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <Music className="h-6 w-6 mt-1 flex-shrink-0" />
+                  <Music className="h-5 w-5 mt-1 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold">Expert Instructors</p>
-                    <p className="text-purple-100 text-sm">Learn from certified professionals</p>
+                    <p className="font-semibold text-sm">Expert Instructors</p>
+                    <p className="text-purple-100 text-xs">Learn from certified professionals</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-3">
-                  <Users className="h-6 w-6 mt-1 flex-shrink-0" />
+                  <Users className="h-5 w-5 mt-1 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold">Small Batch Size</p>
-                    <p className="text-purple-100 text-sm">Personalized attention guaranteed</p>
+                    <p className="font-semibold text-sm">Small Batch Size</p>
+                    <p className="text-purple-100 text-xs">Personalized attention guaranteed</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-3">
-                  <Award className="h-6 w-6 mt-1 flex-shrink-0" />
+                  <Award className="h-5 w-5 mt-1 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold">Certified Courses</p>
-                    <p className="text-purple-100 text-sm">Get recognized certificates</p>
+                    <p className="font-semibold text-sm">Certified Courses</p>
+                    <p className="text-purple-100 text-xs">Get recognized certificates</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Map */}
-            <div className="bg-white rounded-2xl shadow-xl p-6 border border-purple-100">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Find Us Here</h3>
-              <div className="rounded-lg overflow-hidden h-48">
+            {/* WhatsApp Button */}
+            <a 
+              href="https://wa.me/917299817996" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl shadow-xl p-5 text-white hover:from-green-600 hover:to-green-700 transition-all transform hover:scale-105 cursor-pointer">
+                <div className="flex items-center justify-center space-x-3">
+                  <MessageCircle className="h-7 w-7" />
+                  <div>
+                    <p className="text-lg font-bold">Chat on WhatsApp</p>
+                    <p className="text-green-100 text-xs">Quick responses guaranteed</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        {/* Map Section - Full Width */}
+        <div className="mt-12 bg-white rounded-2xl shadow-xl p-8 border border-purple-100">
+          <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Find Us on the Map</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="md:col-span-2">
+              <div className="rounded-xl overflow-hidden h-96 shadow-lg">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242.85576792513436!2d80.20470992494506!3d13.118669789916673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52645e64a29e21%3A0xe2d5b6a2ee4ba35f!2sTrusted%20Private%20Finance%20in%20Chennai%20-%20CBS%20Finance!5e0!3m2!1sen!2sin!4v1762576453488!5m2!1sen!2sin" 
                   width="100%" 
@@ -348,35 +399,26 @@ const Contact = () => {
                   referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
+            </div>
+            <div className="flex flex-col justify-center space-y-6">
+              <div className="bg-gradient-to-br from-purple-50 to-indigo-50 p-6 rounded-xl">
+                <MapPin className="h-8 w-8 text-purple-600 mb-3" />
+                <h3 className="font-bold text-lg text-gray-800 mb-2">Our Location</h3>
+                <p className="text-gray-600 text-sm mb-1">123 Music Street, Avadi</p>
+                <p className="text-gray-600 text-sm mb-4">Chennai, Tamil Nadu 600054</p>
+                <p className="text-purple-600 text-sm font-medium">Easy access from all parts of Chennai</p>
+              </div>
               <a 
                 href="https://www.google.com/maps/dir/?api=1&destination=13.11873476860294,80.20484671759945" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="block mt-4"
               >
-                <Button className="w-full bg-purple-600 hover:bg-purple-700">
-                  Open in Google Maps
+                <Button className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 py-6 text-base">
+                  <MapPin className="mr-2 h-5 w-5" />
+                  Get Directions
                 </Button>
               </a>
             </div>
-
-            {/* WhatsApp Button */}
-            <a 
-              href="https://wa.me/917299817996" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl shadow-xl p-6 text-white hover:from-green-600 hover:to-green-700 transition-all transform hover:scale-105 cursor-pointer">
-                <div className="flex items-center justify-center space-x-3">
-                  <MessageCircle className="h-8 w-8" />
-                  <div>
-                    <p className="text-xl font-bold">Chat with us on WhatsApp</p>
-                    <p className="text-green-100 text-sm">Quick responses guaranteed</p>
-                  </div>
-                </div>
-              </div>
-            </a>
           </div>
         </div>
 

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Music, Video, Award, Users, Clock, Globe, CheckCircle, Phone, Mail, MapPin, MessageCircle, Youtube, Instagram, ArrowRight, Star, Calendar, Headphones, BookOpen } from 'lucide-react';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { SEOHelmet } from "@/components/SEOHelmet";
+import { StructuredData, generateBreadcrumbSchema } from "@/lib/structuredData";
 
 
 const HowItWorks = () => {
@@ -78,6 +80,11 @@ const HowItWorks = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-blue-50">
+      <SEOHelmet page="howItWorks" />
+      <StructuredData data={generateBreadcrumbSchema([
+        { name: "Home", url: "https://www.saregapadhasa.com" },
+        { name: "How It Works", url: "https://www.saregapadhasa.com/how-it-works" }
+      ])} />
       <Navigation />
       
       {/* Hero Section */}

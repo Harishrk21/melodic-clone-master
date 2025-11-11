@@ -2,8 +2,16 @@ import React, { useState } from 'react';
 import { Music, Mic2, Heart, Award, Users, Clock, BookOpen, Star, Sparkles, Volume2, Headphones, Trophy, CheckCircle,PlayCircle, Play } from 'lucide-react';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { SEOHelmet } from "@/components/SEOHelmet";
+import { StructuredData, generateCourseSchema, generateBreadcrumbSchema } from "@/lib/structuredData";
 const VocalsPage = () => {
   const [activeStyle, setActiveStyle] = useState('carnatic');
+
+  const courseSchema = generateCourseSchema("Vocals", "https://www.saregapadhasa.com/vocals");
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.saregapadhasa.com" },
+    { name: "Vocal Classes", url: "https://www.saregapadhasa.com/vocals" }
+  ]);
 
   const vocalStyles = {
     carnatic: {
@@ -28,6 +36,9 @@ const VocalsPage = () => {
 
   return (
     <>
+    <SEOHelmet page="vocals" />
+    <StructuredData data={courseSchema} />
+    <StructuredData data={breadcrumbs} />
     <Navigation/>
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50">
       {/* Hero Section */}

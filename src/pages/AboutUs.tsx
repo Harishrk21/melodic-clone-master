@@ -2,8 +2,17 @@ import React, { useState } from 'react';
 import { Music, Award, Users, Heart, Target, Sparkles, BookOpen, Trophy, Star, ChevronRight, Clock, Globe, Zap, Crown } from 'lucide-react';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import founderImage from '../assets/keyboard.png';
+import { SEOHelmet } from "@/components/SEOHelmet";
+import { StructuredData, generateBreadcrumbSchema } from "@/lib/structuredData";
+
 const AboutUs = () => {
   const [activeValue, setActiveValue] = useState(0);
+
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.saregapadhasa.com" },
+    { name: "About", url: "https://www.saregapadhasa.com/about" }
+  ]);
 
   const milestones = [
     { year: "2015", title: "Foundation", description: "SaReGaPaDhaSa Music Academy was established with a vision to preserve and promote traditional Indian music" },
@@ -53,6 +62,8 @@ const AboutUs = () => {
 
   return (
     <>
+    <SEOHelmet page="about" />
+    <StructuredData data={breadcrumbs} />
     <Navigation/>
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
       {/* Hero Section */}
@@ -176,7 +187,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Founder Section */}
+      {/* Founder Profile */}
       <section className="py-20 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-600 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -186,63 +197,112 @@ const AboutUs = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Meet Our Founder</h2>
-            <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
+            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/20">
+              <Crown className="w-5 h-5" />
+              <span className="text-sm font-semibold tracking-wide">Founder & Chief Mentor</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mt-6 mb-3">SURESH J</h2>
+            <p className="text-purple-100">Perambur, Chennai, India • +91-9003066873 • surees114@gmail.com</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="flex justify-center">
-              <div className="relative group">
-                {/* Image Placeholder with elegant design */}
-                <div className="relative w-80 h-80 rounded-3xl overflow-hidden shadow-2xl border-8 border-white/20 backdrop-blur-sm bg-white/10">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-300/30 to-pink-300/30 flex items-center justify-center">
-                    <div className="text-center">
-                      <Crown className="w-32 h-32 text-white/60 mx-auto mb-4" />
-                      <p className="text-white/80 font-semibold text-lg">Founder Photo</p>
-                      <p className="text-white/60 text-sm">Place founder image here</p>
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Left Column - Summary Card */}
+            <div className="lg:col-span-2">
+              <div className="relative rounded-3xl p-8 md:p-10 bg-white/10 border border-white/20 shadow-xl overflow-hidden">
+                <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-white/10 blur-3xl"></div>
+                <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-white/10 blur-3xl"></div>
+
+                <div className="flex flex-wrap gap-3 mb-6">
+                  <span className="px-4 py-2 rounded-full text-sm font-semibold bg-white/15 border border-white/20">10+ Years Teaching</span>
+                  <span className="px-4 py-2 rounded-full text-sm font-semibold bg-white/15 border border-white/20">Trinity Grade 8 (Piano, Guitar, Theory)</span>
+                  <span className="px-4 py-2 rounded-full text-sm font-semibold bg-white/15 border border-white/20">Online & Offline</span>
+                </div>
+
+                <h3 className="text-2xl md:text-3xl font-bold mb-3">Professional Summary</h3>
+                <p className="text-white/90 leading-relaxed">
+                  Passionate music educator specializing in piano, guitar, and music theory. Experienced in preparing students for Trinity College London grade examinations (Grades 1–8), with a focus on strong fundamentals, confident performance, and enjoyable learning for all age groups.
+                </p>
+
+                <div className="mt-8 grid sm:grid-cols-2 gap-6">
+                  <div className="rounded-2xl p-5 bg-white/10 border border-white/20">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Users className="w-5 h-5" />
+                      <h4 className="font-semibold">Core Competencies</h4>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {['Piano & Guitar Instruction','Music Theory Training','Trinity Exam Prep','Customized Lesson Plans'].map((chip) => (
+                        <span key={chip} className="px-3 py-1 rounded-full text-xs bg-white/15 border border-white/20">{chip}</span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="rounded-2xl p-5 bg-white/10 border border-white/20">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Star className="w-5 h-5" />
+                      <h4 className="font-semibold">Teaching Strengths</h4>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {['Online & Offline Teaching','Progress Evaluation','Patience & Communication','Performance Coaching'].map((chip) => (
+                        <span key={chip} className="px-3 py-1 rounded-full text-xs bg-white/15 border border-white/20">{chip}</span>
+                      ))}
                     </div>
                   </div>
                 </div>
-                {/* Decorative elements */}
-                <div className="absolute -top-4 -left-4 w-24 h-24 bg-yellow-400 rounded-full opacity-50 blur-xl group-hover:scale-150 transition-transform duration-500"></div>
-                <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-pink-400 rounded-full opacity-50 blur-xl group-hover:scale-150 transition-transform duration-500"></div>
               </div>
             </div>
 
+            {/* Right Column - Detail Cards */}
             <div className="space-y-6">
-              <div>
-                <h3 className="text-3xl md:text-4xl font-bold mb-2">Suresh J</h3>
-                <p className="text-xl text-purple-100 mb-6">Founder & Chief Mentor</p>
-              </div>
-              
-              <div className="space-y-4 text-lg leading-relaxed">
-                <p className="text-white/90">
-                  A visionary musician and educator with over 20 years of experience in Indian classical music, 
-                  Suresh J founded SaReGaPaDhaSa with a mission to make quality music education accessible to all.
-                </p>
-                <p className="text-white/90">
-                  Trained under legendary maestros in both Carnatic and Hindustani traditions, he brings a unique 
-                  perspective that bridges classical purity with contemporary relevance. His innovative teaching 
-                  methods have helped thousands of students discover their musical potential.
-                </p>
-                <p className="text-white/90">
-                  Under his guidance, SaReGaPaDhaSa has become synonymous with excellence, nurturing not just 
-                  musicians, but artists who carry forward India's rich musical heritage with pride and creativity.
-                </p>
+              <div className="rounded-2xl p-6 bg-white/10 border border-white/20">
+                <div className="flex items-center gap-2 mb-2">
+                  <Award className="w-5 h-5" />
+                  <h4 className="text-xl font-bold">Education & Certification</h4>
+                </div>
+                <p className="text-white/90 font-semibold">Trinity College London</p>
+                <ul className="text-white/90 text-sm mt-2 space-y-1">
+                  <li>• Grade 8 – Piano</li>
+                  <li>• Grade 8 – Guitar</li>
+                  <li>• Grade 8 – Music Theory</li>
+                </ul>
               </div>
 
-              <div className="flex flex-wrap gap-4 pt-4">
-                <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full flex items-center gap-2">
-                  <Award className="w-5 h-5" />
-                  <span className="text-sm font-semibold">20+ Years Experience</span>
+              <div className="rounded-2xl p-6 bg-white/10 border border-white/20">
+                <div className="flex items-center gap-2 mb-2">
+                  <Crown className="w-5 h-5" />
+                  <h4 className="text-xl font-bold">Professional Experience</h4>
                 </div>
-                <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full flex items-center gap-2">
-                  <Trophy className="w-5 h-5" />
-                  <span className="text-sm font-semibold">Multiple Awards</span>
-                </div>
-                <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full flex items-center gap-2">
+                <p className="text-white/90 font-semibold">Freelance Music Teacher</p>
+                <p className="text-white/90 text-sm mb-2">Perambur, Chennai • Jan 2017 – Present</p>
+                <ul className="text-white/90 text-sm space-y-1">
+                  <li>• Private and group classes for piano, guitar, and theory (Grades 1–8).</li>
+                  <li>• Trinity exam training with structured mock tests and feedback.</li>
+                  <li>• Engaging online sessions via Zoom/Google Meet.</li>
+                  <li>• Personalized lesson plans to suit goals and pace.</li>
+                  <li>• Performance coaching for recitals and events.</li>
+                </ul>
+              </div>
+
+              <div className="rounded-2xl p-6 bg-white/10 border border-white/20">
+                <div className="flex items-center gap-2 mb-2">
                   <Users className="w-5 h-5" />
-                  <span className="text-sm font-semibold">2000+ Students Mentored</span>
+                  <h4 className="text-xl font-bold">Student Success</h4>
+                </div>
+                <ul className="text-white/90 text-sm space-y-1 mb-4">
+                  <li>• 50+ students cleared Trinity exams under guidance.</li>
+                  <li>• High pass rates with multiple distinctions and merits.</li>
+                </ul>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="rounded-xl p-3 bg-white/10 border border-white/20">
+                    <p className="text-xs text-purple-100">Tools & DAWs</p>
+                    <p className="text-sm font-semibold">Zoom, Meet, Skype • GarageBand, FL Studio (Basic)</p>
+                  </div>
+                  <div className="rounded-xl p-3 bg-white/10 border border-white/20">
+                    <p className="text-xs text-purple-100">Instruments</p>
+                    <p className="text-sm font-semibold">Piano • Guitar (Acoustic, Electric, Classical)</p>
+                  </div>
+                  <div className="rounded-xl p-3 bg-white/10 border border-white/20 col-span-2">
+                    <p className="text-xs text-purple-100">Languages</p>
+                    <p className="text-sm font-semibold">English, Tamil</p>
+                  </div>
                 </div>
               </div>
             </div>

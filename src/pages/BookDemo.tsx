@@ -6,6 +6,8 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Calendar, Clock, Music, Users, Video, Home, CheckCircle2, Sparkles, Gift, Trophy, Star, ArrowRight, Phone, Mail } from 'lucide-react';
+import { SEOHelmet } from "@/components/SEOHelmet";
+import { StructuredData, generateBreadcrumbSchema } from "@/lib/structuredData";
 
 const BookDemo = () => {
   const [formData, setFormData] = useState({
@@ -81,7 +83,7 @@ const BookDemo = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (!validateForm()) {
@@ -91,27 +93,54 @@ const BookDemo = () => {
     
     setIsSubmitting(true);
     setSubmitStatus(null);
-    
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        age: '',
-        instrument: '',
-        experience: '',
-        mode: '',
-        preferredDate: '',
-        preferredTime: '',
-        message: ''
+
+    try {
+      const response = await fetch('https://formspree.io/f/xzzybgbz', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          age: formData.age,
+          instrument: formData.instrument,
+          experience: formData.experience,
+          mode: formData.mode,
+          preferredDate: formData.preferredDate,
+          preferredTime: formData.preferredTime,
+          message: formData.message,
+          _subject: `New Book Demo Request - ${formData.name} (${formData.instrument || 'Instrument'})`,
+          _replyto: formData.email
+        })
       });
-      setErrors({});
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      
-      setTimeout(() => setSubmitStatus(null), 7000);
-    }, 1500);
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          age: '',
+          instrument: '',
+          experience: '',
+          mode: '',
+          preferredDate: '',
+          preferredTime: '',
+          message: ''
+        });
+        setErrors({});
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => setSubmitStatus(null), 7000);
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (err) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -124,6 +153,11 @@ const BookDemo = () => {
 
   return (
     <>
+      <SEOHelmet page="bookDemo" />
+      <StructuredData data={generateBreadcrumbSchema([
+        { name: "Home", url: "https://www.saregapadhasa.com" },
+        { name: "Book Demo", url: "https://www.saregapadhasa.com/book-demo" }
+      ])} />
       <Navigation />
       <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-indigo-50">
         {/* Hero Section */}

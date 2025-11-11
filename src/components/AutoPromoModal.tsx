@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-music-learning.png";
 
 const MIN_MS = 2 * 60 * 1000;
-const INITIAL_DELAY_MS = 10 * 1000; // first popup after 10s
+const INITIAL_DELAY_MS = 80 * 1000; // first popup after 10s
 
 const AutoPromoModal = () => {
   const [open, setOpen] = useState(false);
