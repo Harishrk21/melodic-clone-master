@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Users, MapPin, Sparkles, Crown } from "lucide-react";
+import { ArrowRight, Users, MapPin, Sparkles, Crown, Music } from "lucide-react";
 import heroImage from "../assets/logo.jpeg";
 
 const Hero = () => {
@@ -30,16 +30,20 @@ const Hero = () => {
 
             <div className="space-y-6">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
-                <span className="text-white">Live 1-to-1</span>
+                <span className="text-white">Welcome to</span>
                 <br />
                 <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%]">
-                  Offline & Online
+                  SaReGaPaDhaSa
                 </span>
                 <br />
-                <span className="text-white">Music Classes</span>
+                <span className="text-white">Music Academy</span>
+                <br />
+                <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent animate-shimmer bg-[length:200%_100%]">
+                  & Live Band
+                </span>
               </h1>
               <p className="text-lg md:text-xl text-gray-400 max-w-xl leading-relaxed">
-                Taught by professional tutors for all ages. Learn at our centers (offline) or from home (online). Instructions in English & all major Indian languages.
+                Experience premium music education with live 1-to-1 classes and professional live band performances for all your events.
               </p>
             </div>
 
@@ -78,6 +82,17 @@ const Hero = () => {
               >
                 <a href="/book-demo" className="relative flex items-center gap-2 z-10">
                   Book a FREE Demo
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </Button>
+              <Button 
+                asChild 
+                size="lg" 
+                className="group relative bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 hover:from-blue-500 hover:via-blue-400 hover:to-blue-500 text-white font-bold px-8 py-6 text-lg rounded-xl shadow-2xl shadow-blue-500/50 hover:shadow-blue-400/70 transition-all duration-300 border-0 overflow-hidden"
+              >
+                <a href="/liveband" className="relative flex items-center gap-2 z-10">
+                  <Music className="h-5 w-5" />
+                  Book Live Band
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
