@@ -379,12 +379,12 @@ const AboutUs = () => {
             we have the perfect program for you.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="bg-white text-purple-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-purple-50 transition-all transform hover:scale-105 shadow-xl">
+            <a href="/book-demo" className="bg-white text-purple-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-purple-50 transition-all transform hover:scale-105 shadow-xl inline-block">
               Enroll Now - Free Trial Class
-            </button>
-            <button className="bg-transparent border-2 border-white text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all">
+            </a>
+            <a href="/contact" className="bg-transparent border-2 border-white text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all inline-block">
               Contact Us
-            </button>
+            </a>
           </div>
         </div>
       </section>
