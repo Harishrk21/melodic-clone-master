@@ -99,9 +99,7 @@ const CourseGrid = () => {
 
         {/* CTA Section */}
         <div className="mt-16 text-center">
-          <button className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-500 text-black font-bold px-8 py-4 rounded-lg shadow-2xl shadow-amber-500/50 hover:from-amber-400 hover:via-yellow-400 hover:to-amber-400 hover:shadow-amber-400/70 transition-all duration-300 hover:scale-105">
-            Enroll Now
-          </button>
+          
         </div>
       </div>
     </section>

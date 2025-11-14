@@ -1,4 +1,4 @@
-import { Video, Clock, Award, Headphones, BookOpen, Users } from "lucide-react";
+import { Video, Clock, Award, Headphones, BookOpen, Users, Wrench } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Features = () => {
@@ -32,6 +32,12 @@ const Features = () => {
       icon: Users,
       title: "All Ages Welcome",
       description: "Courses designed for children, teens, and adults. It's never too late to start!",
+    },
+    {
+      icon: Wrench,
+      title: "Instrument Servicing",
+      description: "Professional maintenance and repair services for all musical instruments",
+      hasButton: true,
     },
   ];
 
@@ -76,6 +82,15 @@ const Features = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-300 leading-relaxed">{feature.description}</p>
+                  
+                  {feature.hasButton && (
+                    <a
+                      href="/contact"
+                      className="inline-block mt-4 px-6 py-2 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-black font-semibold rounded-lg hover:shadow-lg hover:shadow-amber-500/50 transition-all duration-300 hover:scale-105"
+                    >
+                      Book Service
+                    </a>
+                  )}
                 </CardContent>
 
                 {/* Hover Glow Effect */}
@@ -90,5 +105,3 @@ const Features = () => {
 };
 
 export default Features;
-
-
