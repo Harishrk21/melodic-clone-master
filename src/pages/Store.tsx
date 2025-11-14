@@ -5,6 +5,12 @@ import Navigation from "@/components/Navigation";
 import Footers from "@/components/Footer";
 import { SEOHelmet } from "@/components/SEOHelmet";
 import { StructuredData, generateBreadcrumbSchema } from "@/lib/structuredData";
+import keyImg from "/src/assets/key.jpeg";
+import violinImg from "/src/assets/violin.jpg";
+import drumsImg from "/src/assets/drums.png";
+import fluteImg from "/src/assets/flute.jpg";
+import guitarImg from "/src/assets/guitar.jpg";
+
 
 const Store = () => {
   const [cart, setCart] = useState([]);
@@ -23,24 +29,29 @@ const Store = () => {
 
   // Updated products list - no duplicates, matching user's requirements
   const products = [
-    { id: 1, name: "Keyboard", category: "Keys", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop" },
+    { id: 1, name: "Keyboard", category: "Keys", image:"https://static.vecteezy.com/system/resources/thumbnails/057/728/509/small/compact-midi-keyboard-for-music-production-png.png"},
     { id: 2, name: "Acoustic Guitar", category: "String", image: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=800&h=600&fit=crop" },
     { id: 3, name: "Electric Guitar", category: "String", image: "https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?w=800&h=600&fit=crop" },
     { id: 4, name: "Bass Guitar", category: "String", image: "https://images.unsplash.com/photo-1556449895-a33c9dba33dd?w=800&h=600&fit=crop" },
-    { id: 5, name: "Carnatic Mandolin", category: "String", image: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&h=600&fit=crop" },
-    { id: 6, name: "Violin", category: "String", image: "https://images.unsplash.com/photo-1612225330812-0e9d7fd1bdb0?w=800&h=600&fit=crop" },
+    { id: 5, name: "Carnatic Mandolin", category: "String", image: "https://5.imimg.com/data5/SELLER/Default/2025/1/483463903/LZ/AW/VO/233758632/techno-mandolin-tmd24.jpg" },
+    { id: 6, name: "Violin", category: "String", image: violinImg },
     { id: 7, name: "Drum Sets", category: "Percussion", image: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=800&h=600&fit=crop" },
-    { id: 8, name: "Drum Pads", category: "Percussion", image: "https://images.unsplash.com/photo-1571327073757-71d13c24de30?w=800&h=600&fit=crop" },
+    { id: 8, name: "Drum Pads", category: "Percussion", image: "https://png.pngtree.com/png-clipart/20230305/original/pngtree-electronic-drum-pad-cartoon-illustration-png-image_8972281.png" },
     { id: 9, name: "Piano", category: "Keys", image: "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=800&h=600&fit=crop" },
     { id: 10, name: "Studio Monitors", category: "Audio", image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&h=600&fit=crop" },
     { id: 11, name: "Active Speakers", category: "Audio", image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=800&h=600&fit=crop" },
     { id: 12, name: "Passive Speakers", category: "Audio", image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800&h=600&fit=crop" },
-    { id: 13, name: "Mixers", category: "Audio", image: "https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=800&h=600&fit=crop" },
-    { id: 14, name: "PA Systems", category: "Audio", image: "https://images.unsplash.com/photo-1614963323446-e5b37e63f533?w=800&h=600&fit=crop" },
-    { id: 15, name: "Acoustic Panels", category: "Audio", image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop" },
-    { id: 16, name: "Guitar Strings", category: "Accessories", image: "https://images.unsplash.com/photo-1525201548942-d8732f6617a0?w=800&h=600&fit=crop" },
-    { id: 17, name: "Guitar Accessories", category: "Accessories", image: "https://images.unsplash.com/photo-1598387181032-a3103a2db5b1?w=800&h=600&fit=crop" },
-    { id: 18, name: "Sruthi Box", category: "Traditional", image: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=800&h=600&fit=crop" },
+    { id: 13, name: "Mixers", category: "Audio", image: "https://t4.ftcdn.net/jpg/06/41/05/99/360_F_641059922_qJL0G7yuBQeOiJRVJV9UF0CCJWvwZKdW.jpg" },
+    { id: 14, name: "PA Systems", category: "Audio", image: "https://images.crutchfieldonline.com/ImageHandler/trim/750/457/products/2016/3/700/g700SMCRCH-F.jpg" },
+    { id: 15, name: "Acoustic Panels", category: "Audio", image: "https://amazoneceiling.in/wp-content/uploads/2023/08/Recording-Studios-Perfected-Acoustic-Treatment-with-Fabric-Wrapped-Acoustic-Panels.jpg" },
+    { id: 16, name: "Guitar Strings", category: "Accessories", image: "https://sterlingmusic.in/cdn/shop/files/DSC01847.jpg?v=1724389622" },
+    { id: 17, name: "Guitar Accessories", category: "Accessories", image: "https://images-cdn.ubuy.co.in/667e9a5315803e7a4b6dd71e-48-pcs-guitar-accessories-kit-acoustic.jpg" },
+    { id: 18, name: "Sruthi Box", category: "Traditional", image: "https://soundlabs.in/wp-content/uploads/2020/10/81-SwarSudha-Right.png" },
+    { id: 19, name: "Flute", category: "Traditional", image: "https://img.freepik.com/premium-photo/wooden-flute-instrument-isolated-white_322433-87.jpg" },
+    { id: 20, name: "ChendaMelam", category: "Percussion", image: "https://content.jdmagicbox.com/comp/def_content/chenda-melam-players/1-chenda-melam-players-1-zstnp-250.jpg" },
+    { id: 21, name: "Veena", category: "Traditional", image: "https://buyveenai.com/wp-content/uploads/2020/07/ekanda-veenai.jpg" },
+
+
   ];
 
   const categories = [...new Set(products.map(p => p.category))];

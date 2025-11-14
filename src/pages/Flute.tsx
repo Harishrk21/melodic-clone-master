@@ -158,21 +158,23 @@ const FlutePage = () => {
             </div>
             
             <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
-                <div className="w-full h-full bg-gradient-to-br from-blue-400 to-purple-500 aspect-square flex items-center justify-center">
-                  <Wind className="w-64 h-64 text-white/20" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Music className="w-32 h-32 text-white animate-pulse" />
-                  </div>
-                </div>
-              </div>
-              <div className="absolute -bottom-4 -left-4 bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-bold shadow-xl transform hover:scale-110 transition-transform">
-                <div className="flex items-center gap-2">
-                  <Trophy className="w-5 h-5" />
-                  <span>Award-Winning Program</span>
-                </div>
-              </div>
-            </div>
+  <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
+    {/* Flute Image */}
+    <img
+      src="/src/assets/flute.jpg"
+      alt="Flute"
+      className="w-full aspect-square object-cover"
+    />
+  </div>
+
+  <div className="absolute -bottom-4 -left-4 bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-bold shadow-xl transform hover:scale-110 transition-transform">
+    <div className="flex items-center gap-2">
+      <Trophy className="w-5 h-5" />
+      <span>Award-Winning Program</span>
+    </div>
+  </div>
+</div>
+
           </div>
         </div>
       </section>

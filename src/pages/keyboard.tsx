@@ -160,22 +160,23 @@ const KeyboardClass = () => {
             </div>
 
             <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500 bg-gradient-to-br from-gray-800 to-gray-900 p-8">
-                <div className="aspect-square flex items-center justify-center">
-                  <div className="text-center">
-                    <Piano className="w-48 h-48 text-white mx-auto mb-4 opacity-90" />
-                    <p className="text-white font-bold text-xl">Professional Keyboard Training</p>
-                    <p className="text-indigo-200 text-sm mt-2">88 Keys • Digital & Acoustic • All Genres</p>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute -bottom-4 -left-4 bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-bold shadow-xl transform hover:scale-110 transition-transform">
-                <div className="flex items-center gap-2">
-                  <Trophy className="w-5 h-5" />
-                  <span>Award-Winning Program</span>
-                </div>
-              </div>
-            </div>
+  <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
+    {/* Keyboard Image */}
+    <img
+      src="/src/assets/key.jpeg"
+      alt="Keyboard"
+      className="w-full aspect-square object-cover"
+    />
+  </div>
+
+  <div className="absolute -bottom-4 -left-4 bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-bold shadow-xl transform hover:scale-110 transition-transform">
+    <div className="flex items-center gap-2">
+      <Trophy className="w-5 h-5" />
+      <span>Award-Winning Program</span>
+    </div>
+  </div>
+</div>
+
           </div>
         </div>
       </section>

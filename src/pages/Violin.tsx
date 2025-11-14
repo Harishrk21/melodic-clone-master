@@ -154,25 +154,23 @@ const Violin = () => {
             </div>
             
             <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
-                <div className="bg-gradient-to-br from-purple-400 to-indigo-600 aspect-square flex items-center justify-center">
-                  <Music className="w-64 h-64 text-white opacity-20" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <Music className="w-32 h-32 text-white mx-auto mb-4" />
-                      <p className="text-white text-2xl font-bold">Your Violin Journey</p>
-                      <p className="text-purple-100">Starts Here</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute -bottom-4 -left-4 bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-bold shadow-xl transform hover:scale-110 transition-transform">
-                <div className="flex items-center gap-2">
-                  <Trophy className="w-5 h-5" />
-                  <span>Award-Winning Program</span>
-                </div>
-              </div>
-            </div>
+  <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
+    {/* Violin Image */}
+    <img
+      src="/src/assets/violin.jpg"
+      alt="Violin"
+      className="w-full aspect-square object-cover"
+    />
+  </div>
+
+  <div className="absolute -bottom-4 -left-4 bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-bold shadow-xl transform hover:scale-110 transition-transform">
+    <div className="flex items-center gap-2">
+      <Trophy className="w-5 h-5" />
+      <span>Award-Winning Program</span>
+    </div>
+  </div>
+</div>
+
           </div>
         </div>
       </section>
