@@ -451,7 +451,7 @@ const Store = () => {
                         required
                         disabled={isSubmitting}
                         className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent disabled:bg-gray-100"
-                        placeholder="+91 XXXXX XXXXX"
+                        placeholder="+91 9003066873"
                       />
                     </div>
                     <div>

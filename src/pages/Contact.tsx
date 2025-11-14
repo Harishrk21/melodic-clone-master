@@ -202,7 +202,7 @@ const Contact = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 90030 66873"
                       className={`transition-all ${errors.phone ? 'border-red-500 focus:ring-red-500' : 'focus:ring-purple-500'}`}
                     />
                     {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
@@ -292,8 +292,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Phone</p>
-                    <p className="text-gray-600 text-sm">+91 98765 43210</p>
-                    <p className="text-gray-600 text-sm">+91 87654 32109</p>
+                    <p className="text-gray-600 text-sm">+91 90030 66873</p>
+                    <p className="text-gray-600 text-sm">+91 72998 17996</p>
                   </div>
                 </div>
 

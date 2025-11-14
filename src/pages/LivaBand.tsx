@@ -774,7 +774,7 @@ const LiveBandPage = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 rounded-lg border-2 border-purple-200 focus:border-purple-500 focus:outline-none transition-colors disabled:bg-gray-100"
-                      placeholder="+91 XXXXX XXXXX"
+                      placeholder="+91 90030 66873"
                       required
                       disabled={isSubmitting}
                     />
