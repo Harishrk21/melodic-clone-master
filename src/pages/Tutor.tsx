@@ -327,7 +327,7 @@ const Tutor = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="+91 90030 66873"
+                      placeholder="+91 93616 23134"
                       className={`h-12 ${errors.phone ? 'border-red-500' : 'focus:ring-purple-500'}`}
                     />
                     {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}

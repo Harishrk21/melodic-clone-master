@@ -658,8 +658,8 @@ const LiveBandPage = () => {
                         +91 93616 23134
                       </a>
                       <br />
-                      <a href="tel:+919003066873" className="text-purple-600 hover:text-purple-700 font-medium">
-                        +91 90030 66873
+                      <a href="tel:+919361623134" className="text-purple-600 hover:text-purple-700 font-medium">
+                        +91 93616 23134
                       </a>
                     </div>
                   </div>
@@ -774,7 +774,7 @@ const LiveBandPage = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 rounded-lg border-2 border-purple-200 focus:border-purple-500 focus:outline-none transition-colors disabled:bg-gray-100"
-                      placeholder="+91 90030 66873"
+                      placeholder="+91 93616 23134"
                       required
                       disabled={isSubmitting}
                     />

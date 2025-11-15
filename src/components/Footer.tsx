@@ -134,7 +134,7 @@ const Footer = () => {
                   <Phone className="h-4 w-4 text-amber-400" />
                 </div>
                 <span className="text-gray-400 group-hover:text-amber-300 transition-colors">
-                  +91 90030 66873
+                  +91 93616 23134
                   <br/>
                   +91 72998 17996
                 </span>

@@ -202,7 +202,7 @@ const AboutUs = () => {
               <span className="text-sm font-semibold tracking-wide">Founder & Chief Mentor</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mt-6 mb-3">SURESH J</h2>
-            <p className="text-purple-100">Perambur, Chennai, India • +91-9003066873 • surees114@gmail.com</p>
+            <p className="text-purple-100">Perambur, Chennai, India • +91-9361623134 • surees114@gmail.com</p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">

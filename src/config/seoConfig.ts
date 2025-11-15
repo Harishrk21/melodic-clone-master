@@ -10,7 +10,7 @@ export interface SEOConfig {
 export const baseSEO = {
   siteName: "Saregapadhasa Music Academy",
   location: "Kolathur, Chennai",
-  phone: "+91 90030 66873, +91 72998 17996", 
+  phone: "+91 93616 23134, +91 72998 17996", 
   email: "admission@saregapadhasa.com", 
   address: "No.20, Ground floor, 1st Main Rd, Srinivasa Nagar, Kolathur, Chennai, Tamil Nadu 600099",
   defaultOGImage: "https://www.saregapadhasa.com/og-image.jpg", // Add your default OG image

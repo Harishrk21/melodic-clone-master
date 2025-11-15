@@ -72,7 +72,7 @@ const AutoPromoModal = () => {
               </Button>
               <div className="grid grid-cols-2 gap-3">
                 <Button asChild variant="success" size="lg" className="font-semibold">
-                  <a href="https://wa.me/919003066873" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+                  <a href="https://wa.me/919361623134" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="font-semibold">
                   <a href="/contact">📞 Contact Us</a>

@@ -102,7 +102,7 @@ const Hero = () => {
                 className="relative bg-black text-amber-400 font-bold px-8 py-6 text-lg rounded-xl border-2 border-amber-500/50 hover:border-amber-400 hover:bg-amber-950/30 shadow-lg shadow-amber-500/20 hover:shadow-amber-400/40 transition-all duration-300 backdrop-blur-sm"
               >
                 <a 
-                  href="https://wa.me/919003066873?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20your%20music%20classes." 
+                  href="https://wa.me/919361623134?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20your%20music%20classes." 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
