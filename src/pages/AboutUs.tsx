@@ -114,78 +114,91 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Our Story */}
-      <section className="py-20 bg-gradient-to-br from-white to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Story</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A journey of passion, dedication, and musical excellence
-            </p>
-          </div>
+        {/* Our Story */}
+        <section className="py-20 bg-gradient-to-br from-white to-purple-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Story</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto mb-6"></div>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                A journey of passion, dedication, and musical excellence
+              </p>
+            </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-            <div className="order-2 md:order-1">
-              <div className="prose prose-lg">
-                <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                  Founded in 2015, SaReGaPaDhaSa Music Academy emerged from a simple yet powerful vision: to create a 
-                  sanctuary where music education transcends conventional boundaries. Our name itself is a tribute to 
-                  the seven sacred notes (Swaras) that form the foundation of Indian classical music.
-                </p>
-                <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                  What began as a small studio in Kolathur, Chennai, has blossomed into a thriving institution with 
-                  multiple branches and a global online presence. We've touched the lives of over 2,000 students, 
-                  each on their unique musical journey.
-                </p>
-                <p className="text-gray-700 text-lg leading-relaxed">
-                  Our approach combines the time-honored guru-shishya parampara (teacher-student tradition) with 
-                  contemporary teaching methodologies, ensuring that ancient musical wisdom remains accessible and 
-                  relevant for modern learners.
-                </p>
+            <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+              <div className="order-2 md:order-1">
+                <div className="prose prose-lg">
+                  <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                    Founded in 2015, SaReGaPaDhaSa Music Academy emerged from a simple yet powerful vision: to create a 
+                    sanctuary where music education transcends conventional boundaries. Our name itself is a tribute to 
+                    the seven sacred notes (Swaras) that form the foundation of Indian classical music.
+                  </p>
+                  <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                    What began as a small studio in Kolathur, Chennai, has blossomed into a thriving institution with 
+                    multiple branches and a global online presence. We've touched the lives of over 2,000 students, 
+                    each on their unique musical journey.
+                  </p>
+                  <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                    In a significant milestone, we are proud to announce our strategic collaboration with{' '}
+                    <a 
+                      href="https://cbsgroups.in/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-purple-600 font-semibold hover:text-pink-600 transition-colors underline decoration-2 decoration-purple-300 hover:decoration-pink-300"
+                    >
+                      Chetana Business Solutions (CBS Groups)
+                    </a>
+                    , a renowned name in business excellence and innovation. This partnership enables us to enhance our 
+                    operational capabilities and expand our reach while maintaining the highest standards of music education.
+                  </p>
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    Our approach combines the time-honored guru-shishya parampara (teacher-student tradition) with 
+                    contemporary teaching methodologies, ensuring that ancient musical wisdom remains accessible and 
+                    relevant for modern learners.
+                  </p>
+                </div>
+              </div>
+              <div className="order-1 md:order-2">
+                <div className="bg-gradient-to-br from-purple-200 to-pink-200 rounded-3xl p-8 aspect-square flex items-center justify-center relative overflow-hidden shadow-2xl">
+                  <div className="absolute inset-0 opacity-20">
+                    <div className="absolute inset-0" style={{
+                      backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(0,0,0,.1) 35px, rgba(0,0,0,.1) 70px)`
+                    }}></div>
+                  </div>
+                  <div className="text-center relative z-10">
+                    <Music className="w-48 h-48 text-purple-600 mx-auto mb-6 animate-pulse" />
+                    <p className="text-purple-900 font-bold text-2xl">Empowering Musical Dreams</p>
+                    <p className="text-purple-700 text-lg mt-2">Since 2015</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="order-1 md:order-2">
-              <div className="bg-gradient-to-br from-purple-200 to-pink-200 rounded-3xl p-8 aspect-square flex items-center justify-center relative overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 opacity-20">
-                  <div className="absolute inset-0" style={{
-                    backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(0,0,0,.1) 35px, rgba(0,0,0,.1) 70px)`
-                  }}></div>
-                </div>
-                <div className="text-center relative z-10">
-                  <Music className="w-48 h-48 text-purple-600 mx-auto mb-6 animate-pulse" />
-                  <p className="text-purple-900 font-bold text-2xl">Empowering Musical Dreams</p>
-                  <p className="text-purple-700 text-lg mt-2">Since 2015</p>
-                </div>
+
+            {/* Timeline */}
+            <div className="relative">
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-purple-300 to-pink-300"></div>
+              <div className="space-y-12">
+                {milestones.map((milestone, index) => (
+                  <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                    <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+                      <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow">
+                        <div className="text-3xl font-bold text-purple-600 mb-2">{milestone.year}</div>
+                        <h3 className="text-xl font-bold text-gray-900 mb-2">{milestone.title}</h3>
+                        <p className="text-gray-600">{milestone.description}</p>
+                      </div>
+                    </div>
+                    <div className="w-2/12 flex justify-center">
+                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full border-4 border-white shadow-lg flex items-center justify-center z-10">
+                        <Star className="w-6 h-6 text-white fill-current" />
+                      </div>
+                    </div>
+                    <div className="w-5/12"></div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-
-          {/* Timeline */}
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-purple-300 to-pink-300"></div>
-            <div className="space-y-12">
-              {milestones.map((milestone, index) => (
-                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                  <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
-                    <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow">
-                      <div className="text-3xl font-bold text-purple-600 mb-2">{milestone.year}</div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{milestone.title}</h3>
-                      <p className="text-gray-600">{milestone.description}</p>
-                    </div>
-                  </div>
-                  <div className="w-2/12 flex justify-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full border-4 border-white shadow-lg flex items-center justify-center z-10">
-                      <Star className="w-6 h-6 text-white fill-current" />
-                    </div>
-                  </div>
-                  <div className="w-5/12"></div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
       {/* Founder Profile */}
       <section className="py-20 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-600 text-white relative overflow-hidden">
