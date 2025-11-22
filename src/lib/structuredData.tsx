@@ -1,5 +1,4 @@
 // structuredData.ts - Schema.org JSON-LD for rich snippets
-// Add this to your index.html or use react-helmet-async
 
 export const generateOrganizationSchema = () => ({
   "@context": "https://schema.org",
@@ -12,7 +11,7 @@ export const generateOrganizationSchema = () => ({
   "description": "Premier music academy in Kolathur, Chennai offering professional music education in guitar, piano, vocals, drums, violin, flute, and keyboard. Trinity, ABRSM & Rockschool certified courses.",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "No.20, Ground floor, 1st Main Rd, Srinivasa Nagar, Kolathur, Chennai, Tamil Nadu 600099", // Add your actual address
+    "streetAddress": "No.20, Ground Floor, 1st Main Road, Srinivasa Nagar",
     "addressLocality": "Kolathur",
     "addressRegion": "Tamil Nadu",
     "postalCode": "600099",
@@ -23,13 +22,23 @@ export const generateOrganizationSchema = () => ({
     "latitude": "13.1318",
     "longitude": "80.2081"
   },
-  "telephone": "+91-93616-23134, +91-72998-17996", // Add your phone
+  "telephone": [
+    "+91-93616-23134",
+    "+91-72998-17996"
+  ],
   "email": "info@saregapadhasa.com",
   "priceRange": "$$",
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
       "opens": "09:00",
       "closes": "20:00"
     }
@@ -41,6 +50,7 @@ export const generateOrganizationSchema = () => ({
   ]
 });
 
+
 export const generateLocalBusinessSchema = () => ({
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -49,7 +59,7 @@ export const generateLocalBusinessSchema = () => ({
   "image": "https://www.saregapadhasa.com/og-image.jpg",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Your Street Address",
+    "streetAddress": "No.20, Ground Floor, 1st Main Road, Srinivasa Nagar",
     "addressLocality": "Kolathur",
     "addressRegion": "TN",
     "postalCode": "600099",
@@ -61,7 +71,10 @@ export const generateLocalBusinessSchema = () => ({
     "longitude": 80.2081
   },
   "url": "https://www.saregapadhasa.com",
-  "telephone": "+91-93616-23134, +91-72998-17996",
+  "telephone": [
+    "+91-93616-23134",
+    "+91-72998-17996"
+  ],
   "priceRange": "$$",
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -70,11 +83,12 @@ export const generateLocalBusinessSchema = () => ({
   }
 });
 
+
 export const generateCourseSchema = (courseName: string, courseUrl: string) => ({
   "@context": "https://schema.org",
   "@type": "Course",
   "name": `${courseName} Classes`,
-  "description": `Professional ${courseName} lessons at Saregapadhasa Music Academy in Kolathur, Chennai`,
+  "description": `Professional ${courseName} lessons at Saregapadhasa Music Academy in Kolathur, Chennai.`,
   "provider": {
     "@type": "Organization",
     "name": "Saregapadhasa Music Academy",
@@ -88,11 +102,14 @@ export const generateCourseSchema = (courseName: string, courseUrl: string) => (
     "@type": "Offer",
     "category": "Music Education",
     "priceCurrency": "INR",
-    "availability": "https://schema.org/InStock"
+    "availability": "InStock"
   }
 });
 
-export const generateBreadcrumbSchema = (items: Array<{name: string, url: string}>) => ({
+
+export const generateBreadcrumbSchema = (
+  items: Array<{ name: string; url: string }>
+) => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": items.map((item, index) => ({
@@ -103,10 +120,13 @@ export const generateBreadcrumbSchema = (items: Array<{name: string, url: string
   }))
 });
 
-export const generateFAQSchema = (faqs: Array<{question: string, answer: string}>) => ({
+
+export const generateFAQSchema = (
+  faqs: Array<{ question: string; answer: string }>
+) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": faqs.map(faq => ({
+  "mainEntity": faqs.map((faq) => ({
     "@type": "Question",
     "name": faq.question,
     "acceptedAnswer": {
@@ -116,28 +136,16 @@ export const generateFAQSchema = (faqs: Array<{question: string, answer: string}
   }))
 });
 
+
 // Component to inject structured data
-export const StructuredData = ({ data }: { data: object }) => {
+export const StructuredData = ({ data }: { data: object | object[] }) => {
+  const finalData = Array.isArray(data) ? data : [data];
+
   return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}/>
+    <script 
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(finalData)}}
+    />
   );
 };
 
-// Example usage in a page:
-// import { StructuredData, generateCourseSchema, generateBreadcrumbSchema } from '@/lib/structuredData';
-//
-// const Guitar = () => {
-//   const courseSchema = generateCourseSchema("Guitar", "https://www.saregapadhasa.com/guitar");
-//   const breadcrumbSchema = generateBreadcrumbSchema([
-//     { name: "Home", url: "https://www.saregapadhasa.com" },
-//     { name: "Guitar Classes", url: "https://www.saregapadhasa.com/guitar" }
-//   ]);
-//
-//   return (
-//     <>
-//       <StructuredData data={courseSchema} />
-//       <StructuredData data={breadcrumbSchema} />
-//       {/* Your content */}
-//     </>
-//   );
-// };

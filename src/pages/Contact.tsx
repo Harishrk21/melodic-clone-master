@@ -314,8 +314,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Address</p>
-                    <p className="text-gray-600 text-sm">123 Music Street, Avadi</p>
-                    <p className="text-gray-600 text-sm">Chennai, Tamil Nadu 600054</p>
+                    <p className="text-gray-600 text-sm">Visit our academy @ No.20, Ground Floor,Srinivasa Nagar,1st Main Road</p>
+                    <p className="text-gray-600 text-sm">Kolathur,Chennai-600099</p>
                   </div>
                 </div>
 
@@ -404,8 +404,8 @@ const Contact = () => {
               <div className="bg-gradient-to-br from-purple-50 to-indigo-50 p-6 rounded-xl">
                 <MapPin className="h-8 w-8 text-purple-600 mb-3" />
                 <h3 className="font-bold text-lg text-gray-800 mb-2">Our Location</h3>
-                <p className="text-gray-600 text-sm mb-1">123 Music Street, Avadi</p>
-                <p className="text-gray-600 text-sm mb-4">Chennai, Tamil Nadu 600054</p>
+                <p className="text-gray-600 text-sm mb-1">Visit our academy @ No.20, Ground Floor,Srinivasa Nagar,1st Main Road</p>
+                <p className="text-gray-600 text-sm mb-4">Kolathur,Chennai,TamilNadu-600099</p>
                 <p className="text-purple-600 text-sm font-medium">Easy access from all parts of Chennai</p>
               </div>
               <a 

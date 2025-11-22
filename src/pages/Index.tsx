@@ -5,16 +5,25 @@ import Features from "@/components/Features";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import { SEOHelmet } from "@/components/SEOHelmet";
-import { StructuredData, generateOrganizationSchema, generateLocalBusinessSchema } from "@/lib/structuredData";
+import { StructuredData, generateOrganizationSchema, generateLocalBusinessSchema, generateBreadcrumbSchema } from "@/lib/structuredData";
 
 const Index = () => {
-  const orgSchema = generateOrganizationSchema();
-  const localBusiness = generateLocalBusinessSchema();
+
+  const structuredSchemas = [
+    generateOrganizationSchema(),
+    generateLocalBusinessSchema(),
+    generateBreadcrumbSchema([
+      { name: "Home", url: "https://www.saregapadhasa.com" }
+    ])
+  ];
+
   return (
     <div className="min-h-screen">
       <SEOHelmet page="home" />
-      <StructuredData data={orgSchema} />
-      <StructuredData data={localBusiness} />
+
+      {/* Single JSON-LD output — BEST for Google */}
+      <StructuredData data={structuredSchemas} />
+
       <Navigation />
       <main>
         <Hero />
@@ -23,7 +32,6 @@ const Index = () => {
         <Testimonials />
       </main>
       <Footer />
-     
     </div>
   );
 };

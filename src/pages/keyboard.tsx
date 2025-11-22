@@ -93,8 +93,8 @@ const KeyboardClass = () => {
   return (
     <>
     <SEOHelmet page="keyboard" />
-    <StructuredData data={courseSchema} />
-    <StructuredData data={breadcrumbs} />
+    <StructuredData data={[courseSchema, breadcrumbs]} />
+
     <Navigation/>
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
       {/* Hero Section */}

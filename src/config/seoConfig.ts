@@ -10,7 +10,7 @@ export interface SEOConfig {
 export const baseSEO = {
   siteName: "Saregapadhasa Music Academy",
   location: "Kolathur, Chennai",
-  phone: "+91 93616 23134, +91 72998 17996", 
+  phone: "+9193616 23134, +9172998 17996", 
   email: "admission@saregapadhasa.com", 
   address: "No.20, Ground floor, 1st Main Rd, Srinivasa Nagar, Kolathur, Chennai, Tamil Nadu 600099",
   defaultOGImage: "https://www.saregapadhasa.com/og-image.jpg", // Add your default OG image
@@ -345,10 +345,13 @@ export const generateMetaTags = (pageKey: string): string => {
     <meta name="keywords" content="${seo.keywords.join(", ")}" />
     
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="${seo.title}" />
-    <meta property="og:description" content="${seo.description}" />
-    <meta property="og:site_name" content="${baseSEO.siteName}" />
+   <!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="${seo.title}" />
+<meta property="og:description" content="${seo.description}" />
+<meta property="og:image" content="${seo.ogImage || baseSEO.defaultOGImage}" />
+<meta property="og:site_name" content="${baseSEO.siteName}" />
+
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />

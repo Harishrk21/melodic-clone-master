@@ -385,7 +385,7 @@ const BookDemo = () => {
                       >
                         <Home className="h-8 w-8 text-green-600 mb-2" />
                         <div className="font-semibold text-gray-800 mb-1">In-Person Class</div>
-                        <div className="text-sm text-gray-600">Visit our academy in Avadi, Chennai</div>
+                        <div className="text-sm text-gray-600">Visit our academy @ No.20, Ground Floor,Srinivasa Nagar,1st Main Road,Kolathur,Chennai-600099</div>
                       </button>
                     </div>
                     {errors.mode && <p className="text-red-500 text-sm mt-2">{errors.mode}</p>}
