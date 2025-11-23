@@ -139,13 +139,18 @@ export const generateFAQSchema = (
 
 // Component to inject structured data
 export const StructuredData = ({ data }: { data: object | object[] }) => {
-  const finalData = Array.isArray(data) ? data : [data];
+  const items = Array.isArray(data) ? data : [data];
 
   return (
-    <script 
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(finalData)}}
-    />
+    <>
+      {items.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+    </>
   );
 };
 
