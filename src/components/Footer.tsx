@@ -136,7 +136,7 @@ const Footer = () => {
                 <span className="text-gray-400 group-hover:text-amber-300 transition-colors">
                   +91 93616 23134
                   <br/>
-                  91 9884188770
+                  +91 9884188770
                 </span>
               </li>
               <li className="flex items-center gap-3 group">

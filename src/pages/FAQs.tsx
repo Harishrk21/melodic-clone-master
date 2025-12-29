@@ -311,7 +311,7 @@ const FAQs = () => {
               <a href="https://wa.me/919361623134" target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-green-600 transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2">
                 WhatsApp Us <MessageCircle />
               </a>
-              <a href="tel:9884188770" className="bg-white text-purple-900 px-10 py-5 rounded-full font-bold text-lg hover:bg-purple-50 transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2">
+              <a href="tel:+919884188770" className="bg-white text-purple-900 px-10 py-5 rounded-full font-bold text-lg hover:bg-purple-50 transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2">
                 Call Now <Phone />
               </a>
               <a href="/contact" className="bg-purple-600 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-purple-700 transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2">
