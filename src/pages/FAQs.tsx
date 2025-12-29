@@ -132,7 +132,7 @@ const FAQs = () => {
               <a href="/contact" className="bg-white text-purple-900 px-8 py-4 rounded-full font-semibold hover:bg-purple-100 transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2">
                 Book FREE Demo <Calendar size={20} />
               </a>
-              <a href="https://wa.me/917299817996" target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-600 transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2">
+              <a href="https://wa.me/919361623134" target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-600 transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2">
                 WhatsApp Us <MessageCircle size={20} />
               </a>
             </div>
@@ -308,10 +308,10 @@ const FAQs = () => {
               We're here to help! Get in touch with us and we'll answer all your queries.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/917299817996" target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-green-600 transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2">
+              <a href="https://wa.me/919361623134" target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-green-600 transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2">
                 WhatsApp Us <MessageCircle />
               </a>
-              <a href="tel:7299817996" className="bg-white text-purple-900 px-10 py-5 rounded-full font-bold text-lg hover:bg-purple-50 transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2">
+              <a href="tel:9884188770" className="bg-white text-purple-900 px-10 py-5 rounded-full font-bold text-lg hover:bg-purple-50 transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2">
                 Call Now <Phone />
               </a>
               <a href="/contact" className="bg-purple-600 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-purple-700 transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2">

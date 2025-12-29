@@ -162,7 +162,7 @@ const HowItWorks = () => {
             <a href="/contact" className="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-purple-50 transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2">
               Book Demo Session <Calendar size={20} />
             </a>
-            <a href="https://wa.me/917299817996" target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-600 transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2">
+            <a href="https://wa.me/919361623134" target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-600 transition-all transform hover:scale-105 shadow-lg inline-flex items-center gap-2">
               WhatsApp Us <MessageCircle size={20} />
             </a>
           </div>
@@ -235,11 +235,11 @@ const HowItWorks = () => {
               <a href="/contact" className="bg-white text-purple-900 px-10 py-5 rounded-full font-bold text-lg hover:bg-purple-50 transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2">
                 Book FREE Demo <ArrowRight />
               </a>
-              <a href="tel:7299817996" className="bg-green-500 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-green-600 transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2">
+              <a href="tel:9884188770" className="bg-green-500 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-green-600 transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2">
                 Call Now <Phone />
               </a>
             </div>
-            <p className="text-purple-200">Questions? WhatsApp us at <a href="https://wa.me/917299817996" className="underline font-semibold hover:text-white">7299817996</a></p>
+            <p className="text-purple-200">Questions? WhatsApp us at <a href="https://wa.me/919361623134" className="underline font-semibold hover:text-white">91 9884188770</a></p>
           </div>
         </div>
       </section>

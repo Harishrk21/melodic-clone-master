@@ -293,7 +293,7 @@ const Contact = () => {
                   <div>
                     <p className="font-semibold text-gray-800">Phone</p>
                     <p className="text-gray-600 text-sm">+91 93616 23134</p>
-                    <p className="text-gray-600 text-sm">+91 72998 17996</p>
+                    <p className="text-gray-600 text-sm">91 9884188770</p>
                   </div>
                 </div>
 
@@ -365,7 +365,7 @@ const Contact = () => {
 
             {/* WhatsApp Button */}
             <a 
-              href="https://wa.me/917299817996" 
+              href="https://wa.me/919361623134" 
               target="_blank" 
               rel="noopener noreferrer"
               className="block"
@@ -390,7 +390,7 @@ const Contact = () => {
             <div className="md:col-span-2">
               <div className="rounded-xl overflow-hidden h-96 shadow-lg">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242.85576792513436!2d80.20470992494506!3d13.118669789916673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52645e64a29e21%3A0xe2d5b6a2ee4ba35f!2sTrusted%20Private%20Finance%20in%20Chennai%20-%20CBS%20Finance!5e0!3m2!1sen!2sin!4v1762576453488!5m2!1sen!2sin" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.691380826477!2d80.20226937454882!3d13.118727111636646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52656118767107%3A0x647d6d42f4fe5b5a!2sSaReGaPaDhaSa%20Music%20Academy%20%7C%20Music%20School%20in%20Kolathur!5e0!3m2!1sen!2sin!4v1766979195196!5m2!1sen!2sin" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
@@ -409,7 +409,7 @@ const Contact = () => {
                 <p className="text-purple-600 text-sm font-medium">Easy access from all parts of Chennai</p>
               </div>
               <a 
-                href="https://www.google.com/maps/dir/?api=1&destination=13.11873476860294,80.20484671759945" 
+                href="https://www.google.com/maps/dir/?api=1&destination=13.118727111636646,80.20226937454882" 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
