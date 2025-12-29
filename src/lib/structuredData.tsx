@@ -23,8 +23,8 @@ export const generateOrganizationSchema = () => ({
     "longitude": "80.2081"
   },
   "telephone": [
-    "+91-93616-23134",
-    "+91-98841-88770"
+    "+91 93616 23134",
+    "+91 98841 88770"
   ],
   "email": "info@saregapadhasa.com",
   "priceRange": "$$",
@@ -72,8 +72,8 @@ export const generateLocalBusinessSchema = () => ({
   },
   "url": "https://www.saregapadhasa.com",
   "telephone": [
-    "+91-93616-23134",
-    "+91-98841-88770"
+    "+91 93616 23134",
+    "+91 98841 88770"
   ],
   "priceRange": "$$",
   "aggregateRating": {
