@@ -239,7 +239,7 @@ const HowItWorks = () => {
                 Call Now <Phone />
               </a>
             </div>
-            <p className="text-purple-200">Questions? WhatsApp us at <a href="https://wa.me/919361623134" className="underline font-semibold hover:text-white">91 9884188770</a></p>
+            <p className="text-purple-200">Questions? WhatsApp us at <a href="https://wa.me/919361623134" className="underline font-semibold hover:text-white">91 93616 23134</a></p>
           </div>
         </div>
       </section>
